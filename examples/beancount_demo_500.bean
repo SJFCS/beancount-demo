@@ -1,5 +1,5 @@
 ; Beancount demo ledger — exactly 500 transactions
-; Demo data only. Dates: 2025-01-01 through 2026-10-20.
+; Demo data only. Dates: 2025-01-01 through 2026-11-20.
 ; Uses the supplied chart of accounts; account names are kept consistent.
 ; Note: random cash balances may go negative because no opening balances are included.
 ; Fund sales use @ transaction prices and rely on FIFO inventory from earlier purchases.
@@ -2028,64 +2028,64 @@
   Expenses:Other                                               73.06 CNY
   Assets:Digital:AliPay                                       -73.06 CNY
 
-2026-10-01 * "银行手续费 #486"
+2026-11-01 * "银行手续费 #486"
   Expenses:Fees:FutuHK                                         28.95 CNY
   Assets:DebitCard:CMB-111                                    -28.95 CNY
 
-2026-10-02 * "工资入账 #487"
+2026-11-02 * "工资入账 #487"
   Assets:DebitCard:CMB-111                                  16500.00 CNY
   Income:Salary                                            -16500.00 CNY
 
-2026-10-07 * "工资入账 #488"
+2026-11-07 * "工资入账 #488"
   Assets:DebitCard:CMB-111                                  12500.00 CNY
   Income:Salary                                            -12500.00 CNY
 
-2026-10-08 * "耳机 #489"
+2026-11-08 * "耳机 #489"
   Expenses:Electronics                                       3555.83 CNY
   Assets:Digital:WeChatPay                                  -3555.83 CNY
 
-2026-10-08 * "共享单车 #490"
+2026-11-08 * "共享单车 #490"
   Expenses:Transport:共享单车                                   4.62 CNY
   Assets:DebitCard:CMB-111                                     -4.62 CNY
 
-2026-10-09 * "电脑配件 #491"
+2026-11-09 * "电脑配件 #491"
   Expenses:Electronics                                       3146.44 CNY
   Assets:Digital:AliPay                                     -3146.44 CNY
 
-2026-10-10 * "午餐外卖 #492"
+2026-11-10 * "午餐外卖 #492"
   Expenses:Food:快餐外卖                                       40.44 CNY
   Liabilities:CreditCard:CMB-1222                             -40.44 CNY
 
-2026-10-10 * "共享单车 #493"
+2026-11-10 * "共享单车 #493"
   Expenses:Transport:共享单车                                   2.46 CNY
   Assets:DebitCard:CMB-111                                     -2.46 CNY
 
-2026-10-13 * "归还个人借款 #494"
+2026-11-13 * "归还个人借款 #494"
   Liabilities:Personal                                      -2000.00 CNY
   Assets:DebitCard:CMB-111                                   2000.00 CNY
 
-2026-10-14 * "体检 #495"
+2026-11-14 * "体检 #495"
   Expenses:Health:体检                                        212.07 CNY
   Assets:Digital:AliPay                                      -212.07 CNY
 
-2026-10-17 * "水费电费燃气费 #496"
+2026-11-17 * "水费电费燃气费 #496"
   Expenses:Housing:水电气暖物业                               140.35 CNY
   Assets:Digital:WeChatPay                                   -140.35 CNY
 
-2026-10-17 * "药品 #497"
+2026-11-17 * "药品 #497"
   Expenses:Health:买药                                        272.02 CNY
   Assets:DebitCard:CMB-111                                   -272.02 CNY
 
-2026-10-17 * "赎回基金 #498"
+2026-11-17 * "赎回基金 #498"
   Assets:Investment:Fund:FUND005827                           -65.52 FUND005827  {} @ 3.272 CNY
   Expenses:Fees:FutuHK                                          1.00 CNY
   Assets:Investment:FutuHKCash                                213.38 CNY
   Income:Investment:Fund:FUND005827:PnL
 
-2026-10-17 * "基金现金分红 #499"
+2026-11-17 * "基金现金分红 #499"
   Assets:Investment:FutuHKCash                                 14.26 CNY
   Income:Investment:Fund:FUND005827:Dividend                  -14.26 CNY
 
-2026-10-20 * "维生素等 #500"
+2026-11-20 * "维生素等 #500"
   Expenses:Health:保健品                                      282.69 CNY
   Assets:Digital:AliPay                                      -282.69 CNY
