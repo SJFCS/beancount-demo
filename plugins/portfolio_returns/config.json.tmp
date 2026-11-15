@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "baseCurrency": "CNY",
+  "investments": [
+    {
+      "id": "fund-005827-live",
+      "name": "易方达蓝筹精选混合（实盘）",
+      "assetAccount": "Assets:Investment:Fund:FUND005827",
+      "commodity": "FUND005827",
+      "cashAccounts": [
+        "Assets:Investment:Broker:FutuHK:Cash"
+      ],
+      "dividendAccounts": [
+        "Income:Investment:Fund:FUND005827:Dividend"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "voo-demo",
+      "name": "VOO 标普 500（示例）",
+      "assetAccount": "Assets:Example:PortfolioReturns:Brokerage:VOO",
+      "commodity": "VOO",
+      "cashAccounts": [
+        "Assets:Example:PortfolioReturns:Brokerage:USD"
+      ],
+      "dividendAccounts": [
+        "Income:Example:PortfolioReturns:VOO:Dividend"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "fund-005827-demo",
+      "name": "FUND005827 基金（示例）",
+      "assetAccount": "Assets:Example:PortfolioReturns:Fund:FUND005827",
+      "commodity": "FUND005827",
+      "cashAccounts": [
+        "Assets:Example:PortfolioReturns:Brokerage:CNY"
+      ],
+      "dividendAccounts": [
+        "Income:Example:PortfolioReturns:Fund:Dividend"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "qqq",
+      "name": "QQQ 纳斯达克 100",
+      "assetAccount": "Assets:Example:PRMulti:QQQ",
+      "commodity": "QQQ",
+      "cashAccounts": [
+        "Assets:Example:PRMulti:Cash:USD"
+      ],
+      "dividendAccounts": [
+        "Income:Example:PRMulti:QQQ:Dividend"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "aapl",
+      "name": "AAPL 苹果",
+      "assetAccount": "Assets:Example:PRMulti:AAPL",
+      "commodity": "AAPL",
+      "cashAccounts": [
+        "Assets:Example:PRMulti:Cash:USD"
+      ],
+      "dividendAccounts": [
+        "Income:Example:PRMulti:AAPL:Dividend"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "bnd",
+      "name": "BND 美国债券 ETF",
+      "assetAccount": "Assets:Example:PRMulti:BND",
+      "commodity": "BND",
+      "cashAccounts": [
+        "Assets:Example:PRMulti:Cash:USD"
+      ],
+      "dividendAccounts": [
+        "Income:Example:PRMulti:BND:Dividend"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "gld",
+      "name": "GLD 黄金 ETF",
+      "assetAccount": "Assets:Example:PRMulti:GLD",
+      "commodity": "GLD",
+      "cashAccounts": [
+        "Assets:Example:PRMulti:Cash:USD"
+      ],
+      "dividendAccounts": [],
+      "enabled": true
+    },
+    {
+      "id": "btc",
+      "name": "BTC 比特币",
+      "assetAccount": "Assets:Example:PRMulti:BTC",
+      "commodity": "BTC",
+      "cashAccounts": [
+        "Assets:Example:PRMulti:Cash:USD"
+      ],
+      "dividendAccounts": [],
+      "enabled": true
+    },
+    {
+      "id": "vnq",
+      "name": "VNQ 美国 REITs",
+      "assetAccount": "Assets:Example:PRMulti:VNQ",
+      "commodity": "VNQ",
+      "cashAccounts": [
+        "Assets:Example:PRMulti:Cash:USD"
+      ],
+      "dividendAccounts": [
+        "Income:Example:PRMulti:VNQ:Dividend"
+      ],
+      "enabled": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "grp-live",
+      "name": "实盘持仓",
+      "investmentIds": [
+        "fund-005827-live"
+      ]
+    },
+    {
+      "id": "grp-index",
+      "name": "核心指数与基金",
+      "investmentIds": [
+        "voo-demo",
+        "fund-005827-demo"
+      ]
+    },
+    {
+      "id": "grp-growth",
+      "name": "成长组合",
+      "investmentIds": [
+        "qqq",
+        "aapl",
+        "btc"
+      ]
+    },
+    {
+      "id": "grp-income",
+      "name": "收入组合",
+      "investmentIds": [
+        "bnd",
+        "vnq"
+      ]
+    },
+    {
+      "id": "grp-hedge",
+      "name": "对冲组合",
+      "investmentIds": [
+        "gld"
+      ]
+    }
+  ],
+  "display": {
+    "pnlColorScheme": "green-red",
+    "defaultRange": "MAX"
+  }
+}

@@ -1,0 +1,237 @@
+plugins:
+  local_config:
+    enabled: true
+  payments:
+    enabled: true
+    input_dir: "import_data"
+    output_dir: "transaction/imported"
+    account_file: "accounts/payments.bean"
+  beantab:
+    enabled: true
+    entry_point: "main.bean"
+    output_dir: "balances"
+    filename: "{date}.bean"
+    pad_account: "Equity:BadDebts"
+    account_prefixes: "Assets,Liabilities"
+  ledger_canvas:
+    enabled: true
+  prices:
+    enabled: true
+    daily: true
+    time: "18:00"
+    timezone: "Asia/Shanghai"
+  periodic:
+    enabled: true
+    # all：全部生成；through_today：只生成截止今天；pending：全部生成，未来标记 !
+    generation_mode: "through_today"
+  valuation:
+    enabled: true
+  portfolio_returns:
+    enabled: true
+  life_calendar:
+    enabled: true
+  fire_calculator:
+    enabled: true
+
+navigation:
+  routes:
+    local_config:
+      group: "root"
+      position: "last"
+      quick_menu: false
+    periodic:
+      group: "plugins"
+      position: 4
+      quick_menu: false
+    valuation:
+      group: "plugins"
+      position: 5
+      quick_menu: false
+    payments:
+      group: "import"
+      position: 0
+      quick_menu: true
+    prices:
+      group: "plugins"
+      position: 3
+      quick_menu: false
+    beantab:
+      group: "plugins"
+      position: 1
+      quick_menu: true
+    ledger_canvas:
+      group: "plugins"
+      position: 2
+      quick_menu: false
+    life_calendar:
+      group: "plugins"
+      position: 7
+      quick_menu: false
+    portfolio_returns:
+      group: "plugins"
+      position: 6
+      quick_menu: false
+    fire_calculator:
+      group: "plugins"
+      position: 8
+      quick_menu: false
+
+paisa_income_statement:
+  labels:
+    Income: 收入
+    Expenses:Tax: 税项
+    Income:Interest: 利息
+    Expenses:Housing: Housing111
+    Assets: 投资损益
+    Equity: 权益
+    Liabilities: 负债
+    Expenses: 支出
+
+# 资产状况页的分类配置。
+# account-type 和 fire 是账户 open 指令中的元数据键；下面的 label 是对应显示名。
+# aliases 使用英文逗号或中文逗号分隔；liquidity 支持 current、non-current、unclassified。
+account_classification:
+  metadata:
+    account_type:
+      key: account-type
+      display_name: account-type
+      display_name_en: account-type
+      separator: ": "
+    fire:
+      key: fire
+      display_name: FIRE
+      display_name_en: FIRE
+      separator: ": "
+  assets:
+    cash:
+      label: 现金及等价物
+      label_en: Cash & equivalents
+      liquidity: current
+      aliases: bank,checking,savings,现金,活期
+    investment:
+      label: 投资资产
+      label_en: Investments
+      liquidity: current
+      aliases: brokerage,securities,投资,证券
+    operating-cash:
+      label: 日常备用金
+      label_en: Operating cash
+      liquidity: current
+      aliases: reserve-cash,spending-cash,备用金,日常现金
+    property:
+      label: 不动产
+      label_en: Property
+      liquidity: non-current
+      aliases: real-estate,home,house,房产,自住房
+    vehicle:
+      label: 车辆
+      label_en: Vehicles
+      liquidity: non-current
+      aliases: car,汽车,车产
+    receivable:
+      label: 应收款
+      label_en: Receivables
+      liquidity: current
+      aliases: receivables,应收,借款
+    other:
+      label: 其他资产
+      label_en: Other assets
+      liquidity: unclassified
+      aliases: 其他
+  liabilities:
+    credit-card:
+      label: 信用卡
+      label_en: Credit cards
+      liquidity: current
+      aliases: credit,信用卡
+    consumer-credit:
+      label: 消费信贷
+      label_en: Consumer credit
+      liquidity: current
+      aliases: consumer-loan,花呗,白条,消费贷
+    mortgage:
+      label: 住房贷款
+      label_en: Mortgages
+      liquidity: non-current
+      aliases: home-loan,房贷,抵押贷款
+    personal-loan:
+      label: 个人借款
+      label_en: Personal loans
+      liquidity: current
+      aliases: personal,个人贷款,私人借款
+    other-liability:
+      label: 其他负债
+      label_en: Other liabilities
+      liquidity: unclassified
+      aliases: other,其他
+  equity:
+    opening-balances:
+      label: 期初余额
+      label_en: Opening balances
+      aliases: opening,期初
+    bad-debts:
+      label: 对账差额
+      label_en: Bad debts
+      aliases: bad-debt,对账差额
+    other-equity:
+      label: 其他权益
+      label_en: Other equity
+      aliases: 其他
+  income:
+    salary:
+      label: 工资
+      label_en: Salary
+      aliases: wage,工资,薪酬
+    investment-income:
+      label: 投资收益
+      label_en: Investment income
+      aliases: dividends,interest,股息,利息
+    other-income:
+      label: 其他收入
+      label_en: Other income
+      aliases: 其他
+  expenses:
+    living:
+      label: 生活支出
+      label_en: Living expenses
+      aliases: living-expenses,生活,日常
+    housing:
+      label: 住房支出
+      label_en: Housing
+      aliases: rent,mortgage-payment,房租,房贷
+    tax:
+      label: 税费
+      label_en: Tax
+      aliases: taxes,税项,税
+    other-expenses:
+      label: 其他支出
+      label_en: Other expenses
+      aliases: 其他
+
+# FIRE 支出类型的默认可在界面上重新勾选；这里只决定初始计入范围。
+fire_expenses:
+  metadata:
+    type:
+      key: fire-expense-type
+  default_type: ordinary
+  types:
+    ordinary:
+      label: 日常支出
+      label_en: Everyday expenses
+      include_in_fire: true
+      tone: emerald
+    periodic:
+      label: 周期性支出
+      label_en: Periodic expenses
+      include_in_fire: true
+      tone: sky
+    course:
+      label: 课程学习
+      label_en: Courses & learning
+      include_in_fire: true
+      tone: orange
+    one-time:
+      label: 一次性支出
+      label_en: One-time expenses
+      include_in_fire: false
+      tone: amber

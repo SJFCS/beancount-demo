@@ -1,0 +1,15 @@
+; 商品
+
+2019-07-01 commodity CNY
+
+2019-07-01 commodity USD
+
+2019-07-01 commodity EUR
+
+2019-07-01 commodity FUND005827
+  name: "某某基金"
+
+2019-07-01 commodity IBM
+
+2019-07-01 commodity COOL_FUND_USD
+  synthetic: TRUE ;标记这个后price插件不会自动请求生成价格，一般用于自定义商品

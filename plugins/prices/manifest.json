@@ -1,0 +1,9 @@
+{
+  "id": "prices",
+  "name": "Prices",
+  "version": "1.2.0",
+  "description": "Fetch market and currency prices into the prices folder.",
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts",
+  "concurrentActions": ["quote", "series", "history"]
+}

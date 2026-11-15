@@ -1,0 +1,18 @@
+2026-11-02 query "Monthly-Expenses" "
+  SELECT 
+    year, month, account, sum(position)
+  WHERE 
+    account ~ 'Expenses:'
+  GROUP BY 
+    year, month, account
+  ORDER BY 
+    year, month, account
+"
+
+
+2026-11-02 query "查询 Expenses:Software 按照商户划分" "
+  SELECT payee, sum(position) AS total
+  WHERE account = 'Expenses:Software'
+  GROUP BY payee
+  ORDER BY total DESC
+"

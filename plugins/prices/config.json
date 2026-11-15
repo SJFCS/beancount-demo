@@ -1,0 +1,8 @@
+{
+  "instruments": [],
+  "schedule": {
+    "enabled": true,
+    "time": "18:00",
+    "timezone": "Asia/Shanghai"
+  }
+}

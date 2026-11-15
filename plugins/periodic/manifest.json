@@ -1,0 +1,8 @@
+{
+  "id": "periodic",
+  "name": "摊销与折旧",
+  "version": "2.0.0",
+  "description": "从交易元数据读取摊销与折旧规则，在内存中生成计划、图表和周期分录。",
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts"
+}

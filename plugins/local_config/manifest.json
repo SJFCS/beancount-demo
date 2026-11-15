@@ -1,0 +1,9 @@
+{
+  "id": "local_config",
+  "name": "插件配置",
+  "version": "1.2.0",
+  "description": "图形化管理插件启停、侧边栏与快捷菜单、排序和各自所属的 YAML 段落。",
+  "alwaysAccessible": true,
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts"
+}

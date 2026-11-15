@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "birthday": "1999-03-07",
+  "lifeExpectancy": 90,
+  "retirementAge": 63,
+  "sleepHours": 8,
+  "workHours": 8,
+  "showNominalAge": false,
+  "customTypes": [
+    {
+      "id": "custom-1",
+      "label": "童年忘记了太多",
+      "startMonth": "start",
+      "endMonth": "2014-08",
+      "display": "fill",
+      "color": "#6587c7"
+    },
+    {
+      "id": "custom-6",
+      "label": "高中",
+      "startMonth": "2014-09",
+      "endMonth": "2017-08",
+      "display": "fill",
+      "color": "#71def4"
+    },
+    {
+      "id": "custom-5",
+      "label": "大学",
+      "startMonth": "2017-09",
+      "endMonth": "2020-06",
+      "display": "fill",
+      "color": "#8de893"
+    },
+    {
+      "id": "custom-4",
+      "label": "黄金时代",
+      "startMonth": "2020-07",
+      "endMonth": "2034-12",
+      "display": "fill",
+      "color": "#ff8aad"
+    },
+    {
+      "id": "custom-7",
+      "label": "加油",
+      "startMonth": "now",
+      "endMonth": "now+3",
+      "display": "underline",
+      "color": "#bbff00"
+    },
+    {
+      "id": "custom-8",
+      "label": "Fire",
+      "startMonth": "2044-01",
+      "endMonth": "2044-12",
+      "display": "underline",
+      "color": "#c879a1"
+    },
+    {
+      "id": "custom-2",
+      "label": "衰弱期",
+      "startMonth": "2059-01",
+      "endMonth": "2068-12",
+      "display": "fill",
+      "color": "#fff3cd"
+    },
+    {
+      "id": "custom-3",
+      "label": "失能期",
+      "startMonth": "2069-01",
+      "endMonth": "end",
+      "display": "fill",
+      "color": "#f8d7da"
+    }
+  ]
+}

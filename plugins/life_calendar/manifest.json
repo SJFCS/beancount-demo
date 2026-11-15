@@ -1,0 +1,8 @@
+{
+  "id": "life_calendar",
+  "name": "人生日历",
+  "version": "1.0.0",
+  "description": "一年一格地看人生进度，从当前年份进入本月视图。",
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "ledger_canvas",
+  "name": "Ledger Canvas",
+  "version": "1.3.0",
+  "description": "在运行时内存中映射交易，按任意表头分组，并推断周期、估算年度金额和查看交易花费。",
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts"
+}

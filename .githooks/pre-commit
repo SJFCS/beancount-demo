@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+if command -v beanfmt >/dev/null 2>&1; then
+  beanfmt_bin="$(command -v beanfmt)"
+elif [[ -x "$HOME/.cargo/bin/beanfmt" ]]; then
+  beanfmt_bin="$HOME/.cargo/bin/beanfmt"
+else
+  printf '%s\n' \
+    'beanfmt is required to format staged Beancount files before committing.' \
+    'Install it with: cargo install beanfmt --features cli' >&2
+  exit 1
+fi
+
+tmp_dir="$(mktemp -d "${TMPDIR:-/tmp}/beanfmt-pre-commit.XXXXXX")"
+trap 'rm -rf "$tmp_dir"' EXIT
+
+changed_list="$tmp_dir/changed"
+: >"$changed_list"
+
+while IFS= read -r -d '' path; do
+  entry="$(git ls-files -s -- "$path" | sed -n '1p')"
+  [[ -n "$entry" ]] || continue
+
+  read -r mode _ <<<"$entry"
+  if [[ "$mode" != "100644" && "$mode" != "100755" ]]; then
+    continue
+  fi
+
+  staged_file="$tmp_dir/worktree/$path"
+  mkdir -p "$(dirname "$staged_file")"
+  git show ":$path" >"$staged_file"
+
+  formatted_file="$tmp_dir/formatted"
+  converged=0
+  for _ in {1..100}; do
+    "$beanfmt_bin" "$staged_file" >"$formatted_file"
+    if cmp -s "$staged_file" "$formatted_file"; then
+      converged=1
+      break
+    fi
+    cp "$formatted_file" "$staged_file"
+  done
+
+  if ((converged == 0)); then
+    printf 'beanfmt: %s did not converge after 100 passes\n' "$path" >&2
+    exit 1
+  fi
+
+  old_hash="$(awk '{print $2}' <<<"$entry")"
+  new_hash="$(git hash-object --no-filters -- "$staged_file")"
+  if [[ "$new_hash" != "$old_hash" ]]; then
+    printf '%s\0' "$path" >>"$changed_list"
+  fi
+done < <(git diff --cached --name-only --diff-filter=ACMR -z -- '*.bean')
+
+formatted_count=0
+while IFS= read -r -d '' path; do
+  entry="$(git ls-files -s -- "$path" | sed -n '1p')"
+  read -r mode _ <<<"$entry"
+
+  staged_file="$tmp_dir/worktree/$path"
+  old_hash="$(awk '{print $2}' <<<"$entry")"
+  new_hash="$(git hash-object -w --no-filters -- "$staged_file")"
+
+  git update-index --add --cacheinfo "$mode" "$new_hash" "$path"
+  formatted_count=$((formatted_count + 1))
+  printf 'beanfmt: formatted %s\n' "$path"
+
+  if [[ -f "$path" ]]; then
+    worktree_hash="$(git hash-object --no-filters -- "$path")"
+    if [[ "$worktree_hash" == "$old_hash" ]]; then
+      cp "$staged_file" "$path"
+    else
+      printf 'beanfmt: %s has unstaged changes; only the staged version was formatted\n' "$path" >&2
+    fi
+  fi
+done <"$changed_list"
+
+if ((formatted_count > 0)); then
+  printf 'beanfmt: formatted and restaged %d file(s)\n' "$formatted_count"
+fi

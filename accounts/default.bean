@@ -1,0 +1,162 @@
+; 最后结尾的账户要一眼能看出来是干什么的
+
+; ==============;
+; Equity（平衡）;
+; ==============;
+1990-01-01 open Equity:Opening-Balances                               ;初始平衡账户：负责初始化
+
+1990-01-01 open Equity:BadDebts                                       ;坏账：对账时可能之差一块钱，实在是不想找了，我一般就会放在这个账户里
+  account-type: "bad-debt"
+
+1990-01-01 open Equity:Exchange                                       ;大额转账，不破坏查询图表展示
+
+; ==============;
+; Income（入账）;
+; ==============;
+
+1990-01-01 open Income:Salary                                         ;工资
+
+1990-01-01 open Income:Investment                                     ;投资收益/亏损
+
+1990-01-01 open Income:Interest                                       ;利息：这里可以放一些例如银行的结息等有关利息的条目
+
+1990-01-01 open Income:Sale                                           ;销售：这里单独指一些例如出二手，或者卖货之类的条目
+
+1990-01-01 open Income:Other                                          ;其他
+
+; ===================;
+; Liabilities（负债）;
+; ===================;
+
+; 消费信贷
+1990-01-01 open Liabilities:ConsumptionCredit
+  account-type: "consumer-credit"
+
+1990-01-01 open Liabilities:ConsumptionCredit:花呗
+
+1990-01-01 open Liabilities:ConsumptionCredit:白条
+
+1990-01-01 open Liabilities:ConsumptionCredit:抖音月付
+
+1990-01-01 open Liabilities:ConsumptionCredit:美团月付
+
+; 信用卡
+1990-01-01 open Liabilities:CreditCard
+  account-type: "credit-card"
+
+1990-01-01 open Liabilities:CreditCard:CMB-1111                      CNY
+
+1990-01-01 open Liabilities:CreditCard:CMB-1222                      CNY,USD
+
+; 向朋友借款
+1970-01-01 open Liabilities:Personal                                 CNY
+  account-type: "personal-loan"
+
+; ==============;
+; Assets（资产）;
+; ==============;
+
+; 借记卡
+2017-01-01 open Assets:DebitCard
+  account-type: "cash"
+  fire: "true"
+
+2017-01-01 open Assets:DebitCard:CMB-1222                            CNY
+
+2017-01-01 open Assets:DebitCard:CMB-1333                            CNY
+
+; 电子支付账户
+2017-01-01 open Assets:Digital
+  fire: "true"
+  account-type: "operating-cash"
+
+2017-01-01 open Assets:Digital:AliPay                                CNY
+
+2017-01-01 open Assets:Digital:WeChatPay                             CNY
+
+; ================;
+; Expenses（消费）;
+; ================;
+
+1990-01-01 open Expenses:Insurance                                    ; 保险：所有有关保险的放到这里
+
+1990-01-01 open Expenses:Tax                                          ; 税费：个人所得税、五险，五险在我眼里也算税的一种，毕竟也是归税务局管。
+
+1990-01-01 open Expenses:Fees                                         ; 服务费：各种服务费
+
+1990-01-01 open Expenses:Other                                        ; 其他：兜底用的
+
+1990-01-01 open Expenses:Software                                     ; 软件：云会员、云服务器、对象存储,域名注册和续费、IDE、工具软件授权、话费
+
+1990-01-01 open Expenses:Entertainment                                ; 娱乐：去游乐场、看电影、买玩具
+
+1990-01-01 open Expenses:Electronics                                  ; 电子产品和其他
+
+1990-01-01 open Expenses:Gifts-to-SB                                  ; 给别人
+
+1990-01-01 open Expenses:Shopping                                     ;任何无法分类的购物
+
+; 个人
+1990-01-01 open Expenses:Personal:个人护理                            ;理发、美妆、美容
+
+1990-01-01 open Expenses:Personal:健身
+
+1990-01-01 open Expenses:Personal:教育                                ; 学习：书籍、考试课程、认证、学费
+
+1990-01-01 open Expenses:Personal:服饰和鞋
+
+1990-01-01 open Expenses:Personal:生活日用品
+
+; 食物
+
+1990-01-01 open Expenses:Food:米面油料水
+
+1990-01-01 open Expenses:Food:生鲜蛋奶
+
+1990-01-01 open Expenses:Food:水果蔬菜
+
+1990-01-01 open Expenses:Food:饮料零食
+
+1990-01-01 open Expenses:Food:快餐外卖
+
+
+; 交通
+
+1990-01-01 open Expenses:Transport:停车费
+
+1990-01-01 open Expenses:Transport:加油充电
+
+1990-01-01 open Expenses:Transport:保养修车
+
+1990-01-01 open Expenses:Transport:罚款
+
+1990-01-01 open Expenses:Transport:共享单车
+
+1990-01-01 open Expenses:Transport:飞机高铁
+
+1990-01-01 open Expenses:Transport:打车租车
+
+1990-01-01 open Expenses:Transport:公交地铁
+
+; 居住
+
+1990-01-01 open Expenses:Housing:租房
+
+1990-01-01 open Expenses:Housing:酒店
+
+1990-01-01 open Expenses:Housing:水电气暖物业                         ;水电燃气供暖物业
+
+1990-01-01 open Expenses:Housing:维修清洁
+
+1990-01-01 open Expenses:Housing:家具家电
+
+; 健康
+1990-01-01 open Expenses:Health:医院
+
+1990-01-01 open Expenses:Health:买药
+
+1990-01-01 open Expenses:Health:体检
+
+1990-01-01 open Expenses:Health:保健品
+
+1990-01-01 open Expenses:Health:其他                                  ;比如配眼镜

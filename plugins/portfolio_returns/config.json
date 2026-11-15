@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "baseCurrency": "CNY",
+  "investments": [],
+  "groups": [],
+  "display": {
+    "pnlColorScheme": "green-red",
+    "defaultRange": "MAX"
+  }
+}

@@ -1,0 +1,20 @@
+; ==================;
+; Investment（交易）;
+; ==================;
+
+1970-01-01 open Assets:Investment:FutuHKCash                         CNY
+  account-type: "cash"
+  fire: "true"
+
+1970-01-01 open Expenses:Fees:FutuHK                                  ;Broker:FutuHK                                   CNY
+
+; 在 open 指令中指定的 "FIFO"，只对该条指令所声明的那个具体账户生效。
+; 1990-01-01 open Assets:Investment:Stock:GOOG                         GOOG "FIFO" ; 股票
+; 1990-01-01 open Assets:Investment:Glod                               "FIFO" ; 黄金
+1970-01-01 open Assets:Investment:Fund:FUND005827                    FUND005827 "FIFO"
+  account-type: "investment"
+  fire: "true"
+
+1970-01-01 open Income:Investment:Fund:FUND005827:Dividend           CNY
+
+1970-01-01 open Income:Investment:Fund:FUND005827:PnL ;盈亏

@@ -1,0 +1,40 @@
+; 插件
+plugin "beancount.plugins.check_commodity"        ;检查币种声明：出现未 commodity 声明的币种时报错；代价是需补全所有币种声明
+plugin "beancount.plugins.coherent_cost"          ;检查成本记录方式：同一币种裸金额与带成本混用时报错；多币种账本可能误报。
+plugin "beancount.plugins.leafonly"               ;检查账户层级：记在仍有子账户的父账户上时报错；账户结构乱时报错多
+plugin "beancount.plugins.sellgains"              ;检查卖出收益：声明收益与成本基础计算不符时报错；需成本基础记录准确
+; plugin "beancount.plugins.onecommodity"         ;检查账户币种：同一账户出现多种币种余额时报错；与多币种账户需求冲突
+; plugin "beancount.plugins.close_tree"             ;父账户被关闭自动关闭子账户
+; plugin "beancount.plugins.unrealized" "Unrealized" ; 未实现盈亏（暂不支持）
+
+; 配置
+option "title" "我的账本" ;账本名称
+option "operating_currency" "CNY" ;账本主货币
+
+1970-01-01 custom "fava-sidebar-link" "📜 M-3 to day" "/beancount/journal/?time=month-3+to+day"
+
+1970-01-01 custom "fava-sidebar-link" "🔁 Reset filters" ".?"
+; 类型写入位置
+1970-01-01 custom "beancountio-option" "account_file" "accounts/default.bean"
+
+1970-01-01 custom "beancountio-option" "transaction_file" "transaction/{year}/{month}.bean" ;支持 {year}、{month}、{day}、{quarter}、{date}，仅对 transaction_file 生效。
+
+1970-01-01 custom "beancountio-option" "budget_file" "other/budget.bean"
+; 引用
+include "prices/*"
+include "balances/*"
+include "accounts/*"
+include "transaction/*"
+include "other/*"
+
+; Self-contained multi-currency examples; remove this include to disable them.
+; include "./examples/beantab-multi-currency.bean"
+; include "./examples/multi-currency-demo.bean"tyg43
+; include "./examples/investment-cost-completion.bean"
+; include "./examples/six-month-multi-currency.bean"
+; include "./examples/asset-status-demo.bean"
+; include "./examples/periodic-demo.bean"
+; include "./examples/portfolio-returns-demo.bean"
+; include "./examples/portfolio-returns-multi-asset.bean"
+; include "./examples/valuation-demo.bean"
+; include "./examples/beancount_demo_500.bean"

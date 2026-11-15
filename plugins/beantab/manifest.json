@@ -1,0 +1,8 @@
+{
+  "id": "beantab",
+  "name": "BeanTab",
+  "version": "1.0.0",
+  "description": "核对账单余额与账本记录。",
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts"
+}

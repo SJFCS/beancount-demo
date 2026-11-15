@@ -1,0 +1,39 @@
+#:schema https://raw.githubusercontent.com/Xm798/beanfmt/master/beanfmt.schema.json
+
+# 缩进空格数
+indent = 2
+
+# 货币与成本/价格对齐列
+currency_column = 70
+cost_column = 75
+
+# 行内注释（;）对齐列；0 表示不对齐
+inline_comment_column = 0
+
+# 千位分隔符处理："add"、"remove"、"keep"
+thousands = "keep"
+
+# 小数位处理："keep"、"minimal"、"pad"
+decimal_mode = "keep"
+decimal_places = 2
+
+# 按货币覆盖小数位，写法同 Beancount display_precision
+display_precision = []
+
+# 数字规范化范围："all" 或 "amounts"
+amount_scope = "all"
+
+# 成本花括号内添加空格
+spaces_in_braces = false
+
+# 将 CJK 字符视为双宽度进行对齐
+fixed_cjk_width = true
+
+# 按日期排序："off"、"asc"、"desc"
+sort = "off"
+
+# 无时间条目在当天的位置："begin"、"end"、"keep"
+sort_timeless = "keep"
+
+# 排除排序的指令类型
+sort_exclude = []

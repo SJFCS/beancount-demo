@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "types": ["node"],
+    "typeRoots": ["../../ledger/node_modules/@types"],
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["../../ledger/src/*"],
+      "@beancount/plugin": ["../../ledger/src/local/plugin-api.ts"],
+      "bignumber.js": ["../../ledger/node_modules/bignumber.js"]
+    }
+  },
+  "include": ["*/backend.ts", "*/backend/**/*.ts"]
+}

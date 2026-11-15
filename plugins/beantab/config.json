@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "account_filters": [
+    "ConsumptionCredit",
+    "CreditCard",
+    "DebitCard",
+    "Digital",
+    "Assets:Investment"
+  ],
+  "show_closed": false,
+  "show_empty": false,
+  "asserted_only": false,
+  "group_accounts": true
+}

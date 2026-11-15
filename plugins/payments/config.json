@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "paymentAccounts": [
+    {
+      "provider": "alipay",
+      "payment": "",
+      "account": "Assets:Digital:AliPay",
+      "priority": 10
+    },
+    {
+      "provider": "alipay",
+      "payment": "余额宝",
+      "account": "Assets:Digital:AliPay",
+      "priority": 11
+    },
+    {
+      "provider": "alipay",
+      "payment": "余额宝&焕新折扣",
+      "account": "Assets:Digital:AliPay",
+      "priority": 12
+    },
+    {
+      "provider": "alipay",
+      "payment": "余额宝&碰一下立减",
+      "account": "Assets:Digital:AliPay",
+      "priority": 13
+    },
+    {
+      "provider": "alipay",
+      "payment": "工商银行储蓄卡(2053)",
+      "account": "Assets:DebitCard:ICBC-2053",
+      "priority": 14
+    },
+    {
+      "provider": "alipay",
+      "payment": "工商银行储蓄卡(2053)&碰一下立减",
+      "account": "Assets:DebitCard:ICBC-2053",
+      "priority": 15
+    },
+    {
+      "provider": "alipay",
+      "payment": "招商银行信用卡(2035)&招商银行立减金",
+      "account": "Liabilities:CreditCard:CMB-2035",
+      "priority": 16
+    }
+  ],
+  "counterpartyAccounts": [
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "淘天物流科技有限公司",
+      "description": {
+        "match": "contains",
+        "pattern": "闲鱼寄件-寄件费"
+      },
+      "account": "Income:Sale",
+      "priority": -1
+    },
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "山东航空",
+      "account": "Expenses:Transport:飞机高铁",
+      "priority": 1
+    },
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "厦门航空",
+      "account": "Expenses:Transport:飞机高铁",
+      "priority": 3
+    },
+    {
+      "provider": "alipay",
+      "kind": "movement",
+      "match": "exact",
+      "pattern": "厦门航空",
+      "account": "Expenses:Transport:飞机高铁",
+      "priority": 4
+    },
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "中国电信",
+      "account": "Expenses:Software",
+      "priority": 5
+    },
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "山东联通",
+      "account": "Expenses:Software",
+      "priority": 6
+    },
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "数据恢复",
+      "account": "Expenses:Software",
+      "priority": 7
+    },
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "美团",
+      "account": "Expenses:Food:快餐外卖",
+      "priority": 8
+    },
+    {
+      "provider": "alipay",
+      "kind": "expense",
+      "match": "exact",
+      "pattern": "杭州深度求索",
+      "account": "Expenses:Software",
+      "priority": 9
+    }
+  ]
+}

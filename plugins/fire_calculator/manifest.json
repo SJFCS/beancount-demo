@@ -1,0 +1,8 @@
+{
+  "id": "fire_calculator",
+  "name": "FIRE 模拟器",
+  "version": "1.0.0",
+  "description": "用蒙特卡洛模拟评估财务独立计划、现金流、资产配置和提款策略。",
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts"
+}

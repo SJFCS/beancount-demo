@@ -1,0 +1,2091 @@
+; Beancount demo ledger — exactly 500 transactions
+; Demo data only. Dates: 2025-01-01 through 2026-10-20.
+; Uses the supplied chart of accounts; account names are kept consistent.
+; Note: random cash balances may go negative because no opening balances are included.
+; Fund sales use @ transaction prices and rely on FIFO inventory from earlier purchases.
+
+2025-01-01 * "工资入账 #001"
+  Assets:DebitCard:CMB-111                                  13800.00 CNY
+  Income:Salary                                            -13800.00 CNY
+
+2025-01-01 * "美容护理 #002"
+  Expenses:Personal:个人护理                                   87.96 CNY
+  Assets:Digital:AliPay                                       -87.96 CNY
+
+2025-01-03 * "蔬菜 #003"
+  fire-expense-type: "one-time"
+  Expenses:Food:水果蔬菜                                   100024.35 CNY
+  Assets:DebitCard:CMB-111                                -100024.35 CNY
+
+2025-01-04 * "饮料 #004"
+  Expenses:Food:饮料零食                                       14.69 CNY
+  Assets:Digital:WeChatPay                                    -14.69 CNY
+
+2025-01-07 * "美容护理 #005"
+  Expenses:Personal:个人护理                                  111.98 CNY
+  Assets:DebitCard:CMB-111                                   -111.98 CNY
+
+2025-01-08 * "杂项支出 #006"
+  Expenses:Other                                              288.43 CNY
+  Assets:Digital:AliPay                                      -288.43 CNY
+
+2025-01-10 * "意外险 #007"
+  Expenses:Insurance                                          456.14 CNY
+  Assets:Digital:WeChatPay                                   -456.14 CNY
+
+2025-01-10 * "护肤品 #008"
+  Expenses:Personal:个人护理                                  365.50 CNY
+  Assets:Digital:AliPay                                      -365.50 CNY
+
+2025-01-11 * "买入易方达蓝筹精选混合 #009"
+  Assets:Investment:Fund:FUND005827                           415.24 FUND005827  {2.964 CNY}
+  Expenses:Fees:FutuHK                                          1.23 CNY
+  Assets:Investment:FutuHKCash                              -1232.00 CNY
+
+2025-01-12 * "药品 #010"
+  Expenses:Health:买药                                        198.53 CNY
+  Assets:Digital:AliPay                                      -198.53 CNY
+
+2025-01-13 * "医院检查 #011"
+  Expenses:Health:医院                                        245.85 CNY
+  Assets:Digital:AliPay                                      -245.85 CNY
+
+2025-01-14 * "工资入账 #012"
+  Assets:DebitCard:CMB-111                                  16500.00 CNY
+  Income:Salary                                            -16500.00 CNY
+
+2025-01-15 * "买入易方达蓝筹精选混合 #013"
+  Assets:Investment:Fund:FUND005827                           560.73 FUND005827  {1.404 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -788.26 CNY
+
+2025-01-15 * "买入易方达蓝筹精选混合 #014"
+  Assets:Investment:Fund:FUND005827                           496.28 FUND005827  {1.595 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -792.57 CNY
+
+2025-01-16 * "银行结息 #015"
+  Assets:DebitCard:CMB-111                                     15.76 CNY
+  Income:Interest                                             -15.76 CNY
+
+2025-01-16 * "保洁 #016"
+  Expenses:Housing:维修清洁                                   182.34 CNY
+  Assets:DebitCard:CMB-111                                   -182.34 CNY
+
+2025-01-19 * "工资入账 #017"
+  Assets:DebitCard:CMB-111                                  12500.00 CNY
+  Income:Salary                                            -12500.00 CNY
+
+2025-01-20 * "买入易方达蓝筹精选混合 #018"
+  Assets:Investment:Fund:FUND005827                           246.49 FUND005827  {3.432 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -846.95 CNY
+
+2025-01-22 * "基金分红再投资 #019"
+  Income:Investment:Fund:FUND005827:Dividend                  -41.96 CNY
+  Assets:Investment:Fund:FUND005827                          22.2836 FUND005827  {1.883 CNY}
+
+2025-01-23 * "租车 #020"
+  Expenses:Transport:打车租车                                 176.79 CNY
+  Assets:Digital:AliPay                                      -176.79 CNY
+
+2025-01-24 * "买入易方达蓝筹精选混合 #021"
+  Assets:Investment:Fund:FUND005827                           209.76 FUND005827  {2.243 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -471.49 CNY
+
+2025-01-25 * "买入易方达蓝筹精选混合 #022"
+  Assets:Investment:Fund:FUND005827                           301.90 FUND005827  {1.243 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -376.26 CNY
+
+2025-01-26 * "公交地铁 #023"
+  Expenses:Transport:公交地铁                                   9.57 CNY
+  Assets:Digital:AliPay                                        -9.57 CNY
+
+2025-01-27 * "眼镜 #024"
+  Expenses:Health:其他                                       1117.76 CNY
+  Assets:Digital:WeChatPay                                  -1117.76 CNY
+
+2025-01-27 * "医疗保险 #025"
+  Expenses:Insurance                                          502.75 CNY
+  Liabilities:CreditCard:CMB-1222                            -502.75 CNY
+
+2025-01-31 * "银行结息 #026"
+  Assets:DebitCard:CMB-111                                      8.32 CNY
+  Income:Interest                                              -8.32 CNY
+
+2025-01-31 * "个税 #027"
+  Expenses:Tax                                               1050.24 CNY
+  Assets:DebitCard:CMB-111                                  -1050.24 CNY
+
+2025-02-03 * "月租房租 #028"
+  Expenses:Housing:租房                                      2594.91 CNY
+  Assets:Digital:WeChatPay                                  -2594.91 CNY
+
+2025-02-04 * "酒店住宿 #029"
+  Expenses:Housing:酒店                                       989.08 CNY
+  Assets:Digital:WeChatPay                                   -989.08 CNY
+
+2025-02-04 * "对账尾差调整 #030"
+  Equity:BadDebts                                               2.00 CNY
+  Assets:Digital:AliPay                                        -2.00 CNY
+
+2025-02-06 * "海鲜 #031"
+  Expenses:Food:生鲜蛋奶                                      164.36 CNY
+  Assets:Digital:WeChatPay                                   -164.36 CNY
+
+2025-02-06 * "买入易方达蓝筹精选混合 #032"
+  Assets:Investment:Fund:FUND005827                           395.21 FUND005827  {2.272 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -898.92 CNY
+
+2025-02-08 * "美容护理 #033"
+  Expenses:Personal:个人护理                                  400.41 CNY
+  Liabilities:CreditCard:CMB-1222                            -400.41 CNY
+
+2025-02-10 * "药品 #034"
+  Expenses:Health:买药                                        119.49 CNY
+  Assets:Digital:WeChatPay                                   -119.49 CNY
+
+2025-02-10 * "基金现金分红 #035"
+  Assets:Investment:FutuHKCash                                113.49 CNY
+  Income:Investment:Fund:FUND005827:Dividend                 -113.49 CNY
+
+2025-02-11 * "眼镜 #036"
+  Expenses:Health:其他                                        510.49 CNY
+  Assets:Digital:WeChatPay                                   -510.49 CNY
+
+2025-02-12 * "充电 #037"
+  Expenses:Transport:加油充电                                 380.04 CNY
+  Assets:Digital:WeChatPay                                   -380.04 CNY
+
+2025-02-12 * "镜片 #038"
+  Expenses:Health:其他                                        217.98 CNY
+  Assets:Digital:AliPay                                      -217.98 CNY
+
+2025-02-13 * "买入易方达蓝筹精选混合 #039"
+  Assets:Investment:Fund:FUND005827                           595.85 FUND005827  {2.766 CNY}
+  Expenses:Fees:FutuHK                                          1.65 CNY
+  Assets:Investment:FutuHKCash                              -1649.77 CNY
+
+2025-02-15 * "快餐 #040"
+  Expenses:Food:快餐外卖                                       70.29 CNY
+  Assets:Digital:AliPay                                       -70.29 CNY
+
+2025-02-15 * "交通罚款 #041"
+  Expenses:Transport:罚款                                      87.24 CNY
+  Assets:Digital:AliPay                                       -87.24 CNY
+
+2025-02-15 * "基金分红再投资 #042"
+  Income:Investment:Fund:FUND005827:Dividend                  -36.50 CNY
+  Assets:Investment:Fund:FUND005827                          13.6602 FUND005827  {2.672 CNY}
+
+2025-02-17 * "药品 #043"
+  Expenses:Health:买药                                         27.33 CNY
+  Assets:DebitCard:CMB-111                                    -27.33 CNY
+
+2025-02-18 * "偿还信用卡 #044"
+  Liabilities:CreditCard:CMB-1222                            -500.00 CNY
+  Assets:DebitCard:CMB-111                                    500.00 CNY
+
+2025-02-18 * "理发 #045"
+  Expenses:Personal:个人护理                                  115.64 CNY
+  Assets:Digital:AliPay                                      -115.64 CNY
+
+2025-02-21 * "工资入账 #046"
+  Assets:DebitCard:CMB-111                                  17200.00 CNY
+  Income:Salary                                            -17200.00 CNY
+
+2025-02-21 * "月租房租 #047"
+  Expenses:Housing:租房                                      3368.66 CNY
+  Assets:Digital:AliPay                                     -3368.66 CNY
+
+2025-02-22 * "水费电费燃气费 #048"
+  Expenses:Housing:水电气暖物业                               226.59 CNY
+  Assets:Digital:AliPay                                      -226.59 CNY
+
+2025-02-22 * "意外险 #049"
+  Expenses:Insurance                                          303.49 CNY
+  Liabilities:ConsumptionCredit:抖音月付                     -303.49 CNY
+
+2025-02-22 * "买入易方达蓝筹精选混合 #050"
+  Assets:Investment:Fund:FUND005827                           228.17 FUND005827  {1.261 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -288.72 CNY
+
+2025-02-23 * "药品 #051"
+  Expenses:Health:买药                                        274.85 CNY
+  Assets:Digital:WeChatPay                                   -274.85 CNY
+
+2025-02-23 * "交通罚款 #052"
+  Expenses:Transport:罚款                                     254.09 CNY
+  Assets:Digital:AliPay                                      -254.09 CNY
+
+2025-02-24 * "美容护理 #053"
+  Expenses:Personal:个人护理                                  232.75 CNY
+  Assets:Digital:AliPay                                      -232.75 CNY
+
+2025-02-25 * "公交地铁 #054"
+  Expenses:Transport:公交地铁                                   7.94 CNY
+  Assets:Digital:AliPay                                        -7.94 CNY
+
+2025-02-26 * "工资入账 #055"
+  Assets:DebitCard:CMB-111                                  12500.00 CNY
+  Income:Salary                                            -12500.00 CNY
+
+2025-02-26 * "买入易方达蓝筹精选混合 #056"
+  Assets:Investment:Fund:FUND005827                           373.07 FUND005827  {3.379 CNY}
+  Expenses:Fees:FutuHK                                          1.26 CNY
+  Assets:Investment:FutuHKCash                              -1261.86 CNY
+
+2025-02-27 * "出售二手物品 #057"
+  Assets:Digital:AliPay                                        30.00 CNY
+  Income:Sale                                                 -30.00 CNY
+
+2025-02-27 * "买入易方达蓝筹精选混合 #058"
+  Assets:Investment:Fund:FUND005827                           149.81 FUND005827  {2.496 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -374.93 CNY
+
+2025-03-02 * "买入易方达蓝筹精选混合 #059"
+  Assets:Investment:Fund:FUND005827                           437.54 FUND005827  {2.239 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -980.65 CNY
+
+2025-03-03 * "眼镜 #060"
+  Expenses:Health:其他                                       1127.45 CNY
+  Assets:Digital:AliPay                                     -1127.45 CNY
+
+2025-03-03 * "买入易方达蓝筹精选混合 #061"
+  Assets:Investment:Fund:FUND005827                            91.11 FUND005827  {1.152 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -105.96 CNY
+
+2025-03-07 * "域名续费 #062"
+  Expenses:Software                                            67.81 CNY
+  Assets:Digital:AliPay                                       -67.81 CNY
+
+2025-03-07 * "基金现金分红 #063"
+  Assets:Investment:FutuHKCash                                103.57 CNY
+  Income:Investment:Fund:FUND005827:Dividend                 -103.57 CNY
+
+2025-03-08 * "买入易方达蓝筹精选混合 #064"
+  Assets:Investment:Fund:FUND005827                           108.73 FUND005827  {1.347 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -147.46 CNY
+
+2025-03-08 * "买入易方达蓝筹精选混合 #065"
+  Assets:Investment:Fund:FUND005827                           540.57 FUND005827  {2.129 CNY}
+  Expenses:Fees:FutuHK                                          1.15 CNY
+  Assets:Investment:FutuHKCash                              -1152.02 CNY
+
+2025-03-10 * "出售二手物品 #066"
+  Assets:Digital:AliPay                                       200.00 CNY
+  Income:Sale                                                -200.00 CNY
+
+2025-03-13 * "酒店住宿 #067"
+  Expenses:Housing:酒店                                      1131.93 CNY
+  Assets:Digital:WeChatPay                                  -1131.93 CNY
+
+2025-03-15 * "米面粮油 #068"
+  Expenses:Food:米面油料水                                    168.05 CNY
+  Assets:Digital:AliPay                                      -168.05 CNY
+
+2025-03-16 * "车辆保养 #069"
+  Expenses:Transport:保养修车                                1386.22 CNY
+  Assets:DebitCard:CMB-111                                  -1386.22 CNY
+
+2025-03-16 * "买入易方达蓝筹精选混合 #070"
+  Assets:Investment:Fund:FUND005827                            90.30 FUND005827  {2.230 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -202.37 CNY
+
+2025-03-20 * "玩具 #071"
+  Expenses:Entertainment                                      431.70 CNY
+  Assets:Digital:AliPay                                      -431.70 CNY
+
+2025-03-20 * "买入易方达蓝筹精选混合 #072"
+  Assets:Investment:Fund:FUND005827                           117.29 FUND005827  {1.493 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -176.11 CNY
+
+2025-03-23 * "IDE授权 #073"
+  Expenses:Software                                           322.26 CNY
+  Assets:Digital:AliPay                                      -322.26 CNY
+
+2025-03-24 * "维生素等 #074"
+  Expenses:Health:保健品                                       52.89 CNY
+  Assets:DebitCard:CMB-111                                    -52.89 CNY
+
+2025-03-25 * "买入易方达蓝筹精选混合 #075"
+  Assets:Investment:Fund:FUND005827                           274.20 FUND005827  {1.615 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -443.83 CNY
+
+2025-03-26 * "停车费 #076"
+  Expenses:Transport:停车费                                    65.23 CNY
+  Liabilities:ConsumptionCredit:抖音月付                      -65.23 CNY
+
+2025-03-27 * "杂项支出 #077"
+  Expenses:Other                                              228.19 CNY
+  Assets:Digital:AliPay                                      -228.19 CNY
+
+2025-03-27 * "域名续费 #078"
+  Expenses:Software                                            37.52 CNY
+  Assets:Digital:AliPay                                       -37.52 CNY
+
+2025-03-28 * "水费电费燃气费 #079"
+  Expenses:Housing:水电气暖物业                                74.53 CNY
+  Assets:Digital:AliPay                                       -74.53 CNY
+
+2025-03-30 * "共享单车 #080"
+  Expenses:Transport:共享单车                                   6.26 CNY
+  Liabilities:ConsumptionCredit:美团月付                       -6.26 CNY
+
+2025-03-30 * "电影票 #081"
+  Expenses:Entertainment                                      332.51 CNY
+  Liabilities:CreditCard:CMB-1222                            -332.51 CNY
+
+2025-03-30 * "基金分红再投资 #082"
+  Income:Investment:Fund:FUND005827:Dividend                  -38.21 CNY
+  Assets:Investment:Fund:FUND005827                          15.1507 FUND005827  {2.522 CNY}
+
+2025-04-01 * "车辆保养 #083"
+  Expenses:Transport:保养修车                                 809.19 CNY
+  Assets:DebitCard:CMB-111                                   -809.19 CNY
+
+2025-04-01 * "维生素等 #084"
+  Expenses:Health:保健品                                      104.02 CNY
+  Assets:Digital:AliPay                                      -104.02 CNY
+
+2025-04-03 * "归还个人借款 #085"
+  Liabilities:Personal                                      -1000.00 CNY
+  Assets:DebitCard:CMB-111                                   1000.00 CNY
+
+2025-04-04 * "杂项支出 #086"
+  Expenses:Other                                              291.87 CNY
+  Assets:Digital:AliPay                                      -291.87 CNY
+
+2025-04-07 * "买入易方达蓝筹精选混合 #087"
+  Assets:Investment:Fund:FUND005827                           666.47 FUND005827  {3.147 CNY}
+  Expenses:Fees:FutuHK                                          2.10 CNY
+  Assets:Investment:FutuHKCash                              -2099.48 CNY
+
+2025-04-07 * "买入易方达蓝筹精选混合 #088"
+  Assets:Investment:Fund:FUND005827                           578.59 FUND005827  {3.281 CNY}
+  Expenses:Fees:FutuHK                                          1.90 CNY
+  Assets:Investment:FutuHKCash                              -1900.25 CNY
+
+2025-04-08 * "银行结息 #089"
+  Assets:DebitCard:CMB-111                                     31.88 CNY
+  Income:Interest                                             -31.88 CNY
+
+2025-04-09 * "停车费 #090"
+  Expenses:Transport:停车费                                    16.52 CNY
+  Liabilities:CreditCard:CMB-1222                             -16.52 CNY
+
+2025-04-11 * "买入易方达蓝筹精选混合 #091"
+  Assets:Investment:Fund:FUND005827                           258.64 FUND005827  {3.378 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -874.69 CNY
+
+2025-04-12 * "药品 #092"
+  Expenses:Health:买药                                         87.95 CNY
+  Assets:Digital:WeChatPay                                    -87.95 CNY
+
+2025-04-13 * "眼镜 #093"
+  Expenses:Health:其他                                        487.61 CNY
+  Assets:Digital:WeChatPay                                   -487.61 CNY
+
+2025-04-13 * "水费电费燃气费 #094"
+  Expenses:Housing:水电气暖物业                               497.17 CNY
+  Assets:Digital:AliPay                                      -497.17 CNY
+
+2025-04-14 * "工资入账 #095"
+  Assets:DebitCard:CMB-111                                  16500.00 CNY
+  Income:Salary                                            -16500.00 CNY
+
+2025-04-15 * "门诊挂号 #096"
+  Expenses:Health:医院                                        181.16 CNY
+  Liabilities:CreditCard:CMB-1222                            -181.16 CNY
+
+2025-04-15 * "买入易方达蓝筹精选混合 #097"
+  Assets:Investment:Fund:FUND005827                           685.22 FUND005827  {3.214 CNY}
+  Expenses:Fees:FutuHK                                          2.20 CNY
+  Assets:Investment:FutuHKCash                              -2204.50 CNY
+
+2025-04-16 * "工资入账 #098"
+  Assets:DebitCard:CMB-111                                  15000.00 CNY
+  Income:Salary                                            -15000.00 CNY
+
+2025-04-17 * "买入易方达蓝筹精选混合 #099"
+  Assets:Investment:Fund:FUND005827                           557.86 FUND005827  {2.129 CNY}
+  Expenses:Fees:FutuHK                                          1.19 CNY
+  Assets:Investment:FutuHKCash                              -1188.87 CNY
+
+2025-04-19 * "工资入账 #100"
+  Assets:DebitCard:CMB-111                                  13800.00 CNY
+  Income:Salary                                            -13800.00 CNY
+
+2025-04-22 * "工资入账 #101"
+  Assets:DebitCard:CMB-111                                  15000.00 CNY
+  Income:Salary                                            -15000.00 CNY
+
+2025-04-23 * "电脑配件 #102"
+  Expenses:Electronics                                        430.20 CNY
+  Assets:Digital:AliPay                                      -430.20 CNY
+
+2025-04-23 * "公交地铁 #103"
+  Expenses:Transport:公交地铁                                  25.28 CNY
+  Assets:DebitCard:CMB-111                                    -25.28 CNY
+
+2025-04-24 * "月租房租 #104"
+  Expenses:Housing:租房                                      2491.11 CNY
+  Assets:DebitCard:CMB-111                                  -2491.11 CNY
+
+2025-04-25 * "清洁用品 #105"
+  Expenses:Personal:生活日用品                                243.13 CNY
+  Assets:Digital:AliPay                                      -243.13 CNY
+
+2025-04-25 * "买入易方达蓝筹精选混合 #106"
+  Assets:Investment:Fund:FUND005827                           584.84 FUND005827  {3.130 CNY}
+  Expenses:Fees:FutuHK                                          1.83 CNY
+  Assets:Investment:FutuHKCash                              -1832.38 CNY
+
+2025-04-26 * "网约车 #107"
+  Expenses:Transport:打车租车                                  66.15 CNY
+  Liabilities:CreditCard:CMB-1222                             -66.15 CNY
+
+2025-04-27 * "对账尾差调整 #108"
+  Equity:BadDebts                                               0.10 CNY
+  Assets:Digital:AliPay                                        -0.10 CNY
+
+2025-04-29 * "健身房月卡 #109"
+  Expenses:Personal:健身                                      302.61 CNY
+  Liabilities:CreditCard:CMB-1222                            -302.61 CNY
+
+2025-04-29 * "月租房租 #110"
+  Expenses:Housing:租房                                      2176.04 CNY
+  Assets:Digital:AliPay                                     -2176.04 CNY
+
+2025-05-02 * "工资入账 #111"
+  Assets:DebitCard:CMB-111                                  17200.00 CNY
+  Income:Salary                                            -17200.00 CNY
+
+2025-05-02 * "物业费 #112"
+  Expenses:Housing:水电气暖物业                               270.07 CNY
+  Liabilities:CreditCard:CMB-1222                            -270.07 CNY
+
+2025-05-04 * "工资入账 #113"
+  Assets:DebitCard:CMB-111                                  16000.00 CNY
+  Income:Salary                                            -16000.00 CNY
+
+2025-05-05 * "鞋子 #114"
+  Expenses:Personal:服饰和鞋                                  391.48 CNY
+  Assets:Digital:WeChatPay                                   -391.48 CNY
+
+2025-05-06 * "物业费 #115"
+  Expenses:Housing:水电气暖物业                               110.04 CNY
+  Liabilities:CreditCard:CMB-1222                            -110.04 CNY
+
+2025-05-07 * "基金分红再投资 #116"
+  Income:Investment:Fund:FUND005827:Dividend                  -57.97 CNY
+  Assets:Investment:Fund:FUND005827                          36.5050 FUND005827  {1.588 CNY}
+
+2025-05-09 * "基金现金分红 #117"
+  Assets:Investment:FutuHKCash                                121.72 CNY
+  Income:Investment:Fund:FUND005827:Dividend                 -121.72 CNY
+
+2025-05-12 * "买入易方达蓝筹精选混合 #118"
+  Assets:Investment:Fund:FUND005827                           471.42 FUND005827  {1.645 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -776.49 CNY
+
+2025-05-14 * "供暖费 #119"
+  Expenses:Housing:水电气暖物业                               626.33 CNY
+  Assets:Digital:AliPay                                      -626.33 CNY
+
+2025-05-15 * "医院检查 #120"
+  Expenses:Health:医院                                        146.75 CNY
+  Assets:Digital:WeChatPay                                   -146.75 CNY
+
+2025-05-18 * "衣服 #121"
+  Expenses:Personal:服饰和鞋                                  690.08 CNY
+  Liabilities:CreditCard:CMB-1222                            -690.08 CNY
+
+2025-05-18 * "买入易方达蓝筹精选混合 #122"
+  Assets:Investment:Fund:FUND005827                           758.15 FUND005827  {2.465 CNY}
+  Expenses:Fees:FutuHK                                          1.87 CNY
+  Assets:Investment:FutuHKCash                              -1870.71 CNY
+
+2025-05-19 * "保洁 #123"
+  Expenses:Housing:维修清洁                                   636.55 CNY
+  Assets:DebitCard:CMB-111                                   -636.55 CNY
+
+2025-05-20 * "水费电费燃气费 #124"
+  Expenses:Housing:水电气暖物业                               231.33 CNY
+  Assets:Digital:AliPay                                      -231.33 CNY
+
+2025-05-22 * "物业费 #125"
+  Expenses:Housing:水电气暖物业                               294.74 CNY
+  Assets:Digital:AliPay                                      -294.74 CNY
+
+2025-05-24 * "买入易方达蓝筹精选混合 #126"
+  Assets:Investment:Fund:FUND005827                           334.94 FUND005827  {1.402 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -470.59 CNY
+
+2025-05-25 * "工资入账 #127"
+  Assets:DebitCard:CMB-111                                  13800.00 CNY
+  Income:Salary                                            -13800.00 CNY
+
+2025-05-26 * "护肤品 #128"
+  Expenses:Personal:个人护理                                  395.68 CNY
+  Assets:Digital:AliPay                                      -395.68 CNY
+
+2025-05-26 * "对象存储 #129"
+  Expenses:Software                                           136.56 CNY
+  Assets:Digital:WeChatPay                                   -136.56 CNY
+
+2025-05-26 * "个税 #130"
+  Expenses:Tax                                                665.70 CNY
+  Assets:Digital:AliPay                                      -665.70 CNY
+
+2025-05-28 * "酒店住宿 #131"
+  Expenses:Housing:酒店                                       420.67 CNY
+  Assets:Digital:AliPay                                      -420.67 CNY
+
+2025-05-28 * "交通罚款 #132"
+  Expenses:Transport:罚款                                     159.85 CNY
+  Assets:Digital:WeChatPay                                   -159.85 CNY
+
+2025-05-28 * "基金分红再投资 #133"
+  Income:Investment:Fund:FUND005827:Dividend                  -55.38 CNY
+  Assets:Investment:Fund:FUND005827                          16.1930 FUND005827  {3.420 CNY}
+
+2025-05-29 * "酒店住宿 #134"
+  Expenses:Housing:酒店                                       719.65 CNY
+  Assets:Digital:WeChatPay                                   -719.65 CNY
+
+2025-05-30 * "鸡蛋牛奶 #135"
+  Expenses:Food:生鲜蛋奶                                       90.22 CNY
+  Assets:Digital:WeChatPay                                    -90.22 CNY
+
+2025-05-30 * "月租房租 #136"
+  Expenses:Housing:租房                                      3081.83 CNY
+  Assets:Digital:WeChatPay                                  -3081.83 CNY
+
+2025-06-04 * "账户间转账 #137"
+  Assets:Digital:AliPay                                       200.00 CNY
+  Assets:DebitCard:CMB-111                                   -200.00 CNY
+
+2025-06-04 * "医院检查 #138"
+  Expenses:Health:医院                                        372.18 CNY
+  Assets:DebitCard:CMB-111                                   -372.18 CNY
+
+2025-06-04 * "肉类 #139"
+  Expenses:Food:生鲜蛋奶                                       57.53 CNY
+  Assets:DebitCard:CMB-111                                    -57.53 CNY
+
+2025-06-04 * "对账尾差调整 #140"
+  Equity:BadDebts                                               2.00 CNY
+  Assets:Digital:AliPay                                        -2.00 CNY
+
+2025-06-06 * "加油 #141"
+  Expenses:Transport:加油充电                                 389.60 CNY
+  Assets:Digital:AliPay                                      -389.60 CNY
+
+2025-06-06 * "公交地铁 #142"
+  Expenses:Transport:公交地铁                                  23.34 CNY
+  Assets:Digital:AliPay                                       -23.34 CNY
+
+2025-06-08 * "基金分红再投资 #143"
+  Income:Investment:Fund:FUND005827:Dividend                  -18.79 CNY
+  Assets:Investment:Fund:FUND005827                          11.3535 FUND005827  {1.655 CNY}
+
+2025-06-09 * "账户间转账 #144"
+  Assets:Digital:AliPay                                      1000.00 CNY
+  Assets:DebitCard:CMB-111                                  -1000.00 CNY
+
+2025-06-09 * "美容护理 #145"
+  Expenses:Personal:个人护理                                  130.17 CNY
+  Liabilities:ConsumptionCredit:白条                         -130.17 CNY
+
+2025-06-11 * "共享单车 #146"
+  Expenses:Transport:共享单车                                   2.14 CNY
+  Assets:Digital:WeChatPay                                     -2.14 CNY
+
+2025-06-12 * "交通罚款 #147"
+  Expenses:Transport:罚款                                     283.09 CNY
+  Assets:Digital:AliPay                                      -283.09 CNY
+
+2025-06-12 * "维修 #148"
+  Expenses:Transport:保养修车                                1144.11 CNY
+  Assets:DebitCard:CMB-111                                  -1144.11 CNY
+
+2025-06-16 * "公交地铁 #149"
+  Expenses:Transport:公交地铁                                  11.12 CNY
+  Liabilities:ConsumptionCredit:白条                          -11.12 CNY
+
+2025-06-16 * "买入易方达蓝筹精选混合 #150"
+  Assets:Investment:Fund:FUND005827                           218.50 FUND005827  {2.851 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -623.94 CNY
+
+2025-06-18 * "蔬菜 #151"
+  Expenses:Food:水果蔬菜                                      115.81 CNY
+  Assets:DebitCard:CMB-111                                   -115.81 CNY
+
+2025-06-18 * "水费电费燃气费 #152"
+  Expenses:Housing:水电气暖物业                               384.10 CNY
+  Assets:Digital:AliPay                                      -384.10 CNY
+
+2025-06-20 * "快餐 #153"
+  Expenses:Food:快餐外卖                                      102.76 CNY
+  Assets:DebitCard:CMB-111                                   -102.76 CNY
+
+2025-06-20 * "体检 #154"
+  Expenses:Health:体检                                        932.82 CNY
+  Assets:DebitCard:CMB-111                                   -932.82 CNY
+
+2025-06-20 * "鸡蛋牛奶 #155"
+  Expenses:Food:生鲜蛋奶                                       34.26 CNY
+  Assets:Digital:AliPay                                       -34.26 CNY
+
+2025-06-20 * "基金现金分红 #156"
+  Assets:Investment:FutuHKCash                                 97.80 CNY
+  Income:Investment:Fund:FUND005827:Dividend                  -97.80 CNY
+
+2025-06-21 * "社保缴纳 #157"
+  Expenses:Tax                                               1240.96 CNY
+  Liabilities:CreditCard:CMB-1222                           -1240.96 CNY
+
+2025-06-23 * "买入易方达蓝筹精选混合 #158"
+  Assets:Investment:Fund:FUND005827                           689.39 FUND005827  {2.769 CNY}
+  Expenses:Fees:FutuHK                                          1.91 CNY
+  Assets:Investment:FutuHKCash                              -1910.83 CNY
+
+2025-06-24 * "家居维修 #159"
+  Expenses:Housing:维修清洁                                   771.22 CNY
+  Assets:Digital:WeChatPay                                   -771.22 CNY
+
+2025-06-24 * "物业费 #160"
+  Expenses:Housing:水电气暖物业                               216.94 CNY
+  Assets:Digital:AliPay                                      -216.94 CNY
+
+2025-06-26 * "账户间转账 #161"
+  Assets:Digital:AliPay                                       500.00 CNY
+  Assets:DebitCard:CMB-111                                   -500.00 CNY
+
+2025-06-28 * "基金现金分红 #162"
+  Assets:Investment:FutuHKCash                                 66.04 CNY
+  Income:Investment:Fund:FUND005827:Dividend                  -66.04 CNY
+
+2025-07-01 * "出售二手物品 #163"
+  Assets:Digital:AliPay                                        30.00 CNY
+  Income:Sale                                                 -30.00 CNY
+
+2025-07-03 * "供暖费 #164"
+  Expenses:Housing:水电气暖物业                               373.90 CNY
+  Assets:Digital:AliPay                                      -373.90 CNY
+
+2025-07-04 * "游戏消费 #165"
+  Expenses:Entertainment                                      172.06 CNY
+  Liabilities:CreditCard:CMB-1222                            -172.06 CNY
+
+2025-07-04 * "买入易方达蓝筹精选混合 #166"
+  Assets:Investment:Fund:FUND005827                           689.15 FUND005827  {2.928 CNY}
+  Expenses:Fees:FutuHK                                          2.02 CNY
+  Assets:Investment:FutuHKCash                              -2019.85 CNY
+
+2025-07-07 * "交通罚款 #167"
+  Expenses:Transport:罚款                                     233.62 CNY
+  Assets:Digital:AliPay                                      -233.62 CNY
+
+2025-07-08 * "饮用水 #168"
+  Expenses:Food:米面油料水                                     65.81 CNY
+  Assets:Digital:AliPay                                       -65.81 CNY
+
+2025-07-12 * "加油 #169"
+  Expenses:Transport:加油充电                                 328.58 CNY
+  Assets:Digital:AliPay                                      -328.58 CNY
+
+2025-07-12 * "基金现金分红 #170"
+  Assets:Investment:FutuHKCash                                144.44 CNY
+  Income:Investment:Fund:FUND005827:Dividend                 -144.44 CNY
+
+2025-07-18 * "共享单车 #171"
+  Expenses:Transport:共享单车                                  18.49 CNY
+  Assets:DebitCard:CMB-111                                    -18.49 CNY
+
+2025-07-19 * "供暖费 #172"
+  Expenses:Housing:水电气暖物业                              1370.95 CNY
+  Liabilities:CreditCard:CMB-1222                           -1370.95 CNY
+
+2025-07-19 * "蔬菜 #173"
+  Expenses:Food:水果蔬菜                                       77.14 CNY
+  Assets:Digital:AliPay                                       -77.14 CNY
+
+2025-07-19 * "买入易方达蓝筹精选混合 #174"
+  Assets:Investment:Fund:FUND005827                           144.64 FUND005827  {3.441 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -498.71 CNY
+
+2025-07-19 * "买入易方达蓝筹精选混合 #175"
+  Assets:Investment:Fund:FUND005827                           677.81 FUND005827  {2.426 CNY}
+  Expenses:Fees:FutuHK                                          1.64 CNY
+  Assets:Investment:FutuHKCash                              -1646.01 CNY
+
+2025-07-20 * "银行手续费 #176"
+  Expenses:Fees:FutuHK                                         16.07 CNY
+  Assets:DebitCard:CMB-111                                    -16.07 CNY
+
+2025-07-21 * "键盘 #177"
+  Expenses:Electronics                                       3413.92 CNY
+  Assets:Digital:AliPay                                     -3413.92 CNY
+
+2025-07-22 * "电脑配件 #178"
+  Expenses:Electronics                                       1235.15 CNY
+  Assets:Digital:WeChatPay                                  -1235.15 CNY
+
+2025-07-24 * "车辆保养 #179"
+  Expenses:Transport:保养修车                                1457.31 CNY
+  Assets:Digital:AliPay                                     -1457.31 CNY
+
+2025-07-24 * "药品 #180"
+  Expenses:Health:买药                                        209.14 CNY
+  Assets:DebitCard:CMB-111                                   -209.14 CNY
+
+2025-07-28 * "车辆保养 #181"
+  Expenses:Transport:保养修车                                 272.82 CNY
+  Assets:DebitCard:CMB-111                                   -272.82 CNY
+
+2025-07-30 * "充电 #182"
+  Expenses:Transport:加油充电                                 318.97 CNY
+  Assets:DebitCard:CMB-111                                   -318.97 CNY
+
+2025-07-30 * "停车费 #183"
+  Expenses:Transport:停车费                                    56.79 CNY
+  Assets:Digital:AliPay                                       -56.79 CNY
+
+2025-07-31 * "家电 #184"
+  Expenses:Electronics                                       1432.75 CNY
+  Assets:DebitCard:CMB-111                                  -1432.75 CNY
+
+2025-08-01 * "网约车 #185"
+  Expenses:Transport:打车租车                                 292.41 CNY
+  Assets:Digital:AliPay                                      -292.41 CNY
+
+2025-08-06 * "买入易方达蓝筹精选混合 #186"
+  Assets:Investment:Fund:FUND005827                           212.58 FUND005827  {2.108 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -449.12 CNY
+
+2025-08-07 * "水费电费燃气费 #187"
+  Expenses:Housing:水电气暖物业                               485.23 CNY
+  Assets:Digital:WeChatPay                                   -485.23 CNY
+
+2025-08-09 * "工资入账 #188"
+  Assets:DebitCard:CMB-111                                  16500.00 CNY
+  Income:Salary                                            -16500.00 CNY
+
+2025-08-09 * "水费电费燃气费 #189"
+  Expenses:Housing:水电气暖物业                               259.57 CNY
+  Assets:Digital:AliPay                                      -259.57 CNY
+
+2025-08-11 * "药品 #190"
+  Expenses:Health:买药                                        262.91 CNY
+  Assets:Digital:AliPay                                      -262.91 CNY
+
+2025-08-11 * "镜片 #191"
+  Expenses:Health:其他                                        706.12 CNY
+  Assets:DebitCard:CMB-111                                   -706.12 CNY
+
+2025-08-12 * "账户间转账 #192"
+  Assets:Digital:AliPay                                       200.00 CNY
+  Assets:DebitCard:CMB-111                                   -200.00 CNY
+
+2025-08-14 * "月租房租 #193"
+  Expenses:Housing:租房                                      2245.94 CNY
+  Liabilities:ConsumptionCredit:花呗                        -2245.94 CNY
+
+2025-08-16 * "物业费 #194"
+  Expenses:Housing:水电气暖物业                               184.04 CNY
+  Assets:Digital:WeChatPay                                   -184.04 CNY
+
+2025-08-17 * "买入易方达蓝筹精选混合 #195"
+  Assets:Investment:Fund:FUND005827                           796.43 FUND005827  {1.643 CNY}
+  Expenses:Fees:FutuHK                                          1.31 CNY
+  Assets:Investment:FutuHKCash                              -1309.84 CNY
+
+2025-08-18 * "偿还信用卡 #196"
+  Liabilities:CreditCard:CMB-1222                           -1000.00 CNY
+  Assets:DebitCard:CMB-111                                   1000.00 CNY
+
+2025-08-19 * "保洁 #197"
+  Expenses:Housing:维修清洁                                   341.78 CNY
+  Assets:DebitCard:CMB-111                                   -341.78 CNY
+
+2025-08-19 * "水费电费燃气费 #198"
+  Expenses:Housing:水电气暖物业                               362.94 CNY
+  Liabilities:CreditCard:CMB-1222                            -362.94 CNY
+
+2025-08-21 * "支付服务费 #199"
+  Expenses:Fees:FutuHK                                         28.06 CNY
+  Liabilities:CreditCard:CMB-1222                             -28.06 CNY
+
+2025-08-23 * "出售二手物品 #200"
+  Assets:Digital:AliPay                                        50.00 CNY
+  Income:Sale                                                 -50.00 CNY
+
+2025-08-23 * "酒店住宿 #201"
+  Expenses:Housing:酒店                                       735.96 CNY
+  Assets:Digital:WeChatPay                                   -735.96 CNY
+
+2025-08-23 * "交通罚款 #202"
+  Expenses:Transport:罚款                                      60.35 CNY
+  Liabilities:ConsumptionCredit:花呗                          -60.35 CNY
+
+2025-08-24 * "买入易方达蓝筹精选混合 #203"
+  Assets:Investment:Fund:FUND005827                           162.20 FUND005827  {1.368 CNY}
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                               -222.89 CNY
+
+2025-08-26 * "维生素等 #204"
+  Expenses:Health:保健品                                       90.12 CNY
+  Assets:Digital:AliPay                                       -90.12 CNY
+
+2025-08-27 * "工资入账 #205"
+  Assets:DebitCard:CMB-111                                  16000.00 CNY
+  Income:Salary                                            -16000.00 CNY
+
+2025-08-28 * "米面粮油 #206"
+  Expenses:Food:米面油料水                                     78.02 CNY
+  Liabilities:CreditCard:CMB-1222                             -78.02 CNY
+
+2025-08-29 * "维生素等 #207"
+  Expenses:Health:保健品                                      240.06 CNY
+  Assets:Digital:WeChatPay                                   -240.06 CNY
+
+2025-08-31 * "临时支出 #208"
+  Expenses:Other                                              165.74 CNY
+  Assets:DebitCard:CMB-111                                   -165.74 CNY
+
+2025-09-02 * "洗护用品 #209"
+  Expenses:Personal:个人护理                                  354.98 CNY
+  Assets:Digital:WeChatPay                                   -354.98 CNY
+
+2025-09-05 * "银行结息 #210"
+  Assets:DebitCard:CMB-111                                     66.20 CNY
+  Income:Interest                                             -66.20 CNY
+
+2025-09-08 * "健身房月卡 #211"
+  Expenses:Personal:健身                                      421.89 CNY
+  Liabilities:CreditCard:CMB-1222                            -421.89 CNY
+
+2025-09-13 * "账户间转账 #212"
+  Assets:Digital:AliPay                                       500.00 CNY
+  Assets:DebitCard:CMB-111                                   -500.00 CNY
+
+2025-09-14 * "理发 #213"
+  Expenses:Personal:个人护理                                  105.55 CNY
+  Assets:Digital:WeChatPay                                   -105.55 CNY
+
+2025-09-15 * "出售二手物品 #214"
+  Assets:Digital:AliPay                                        30.00 CNY
+  Income:Sale                                                 -30.00 CNY
+
+2025-09-15 * "海鲜 #215"
+  Expenses:Food:生鲜蛋奶                                       78.99 CNY
+  Assets:Digital:WeChatPay                                    -78.99 CNY
+
+2025-09-17 * "工资入账 #216"
+  Assets:DebitCard:CMB-111                                  13800.00 CNY
+  Income:Salary                                            -13800.00 CNY
+
+2025-09-17 * "网约车 #217"
+  Expenses:Transport:打车租车                                 464.00 CNY
+  Assets:DebitCard:CMB-111                                   -464.00 CNY
+
+2025-09-17 * "赎回基金 #218"
+  Assets:Investment:Fund:FUND005827                           -55.24 FUND005827  {} @ 2.740 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                150.36 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2025-09-19 * "银行结息 #219"
+  Assets:DebitCard:CMB-111                                     23.11 CNY
+  Income:Interest                                             -23.11 CNY
+
+2025-09-20 * "偿还信用卡 #220"
+  Liabilities:CreditCard:CMB-1222                           -2000.00 CNY
+  Assets:DebitCard:CMB-111                                   2000.00 CNY
+
+2025-09-20 * "健身房月卡 #221"
+  Expenses:Personal:健身                                      349.36 CNY
+  Liabilities:CreditCard:CMB-1222                            -349.36 CNY
+
+2025-09-22 * "家居维修 #222"
+  Expenses:Housing:维修清洁                                   590.46 CNY
+  Assets:Digital:AliPay                                      -590.46 CNY
+
+2025-09-22 * "保险续费 #223"
+  Expenses:Insurance                                          229.80 CNY
+  Assets:Digital:WeChatPay                                   -229.80 CNY
+
+2025-09-23 * "工资入账 #224"
+  Assets:DebitCard:CMB-111                                  13800.00 CNY
+  Income:Salary                                            -13800.00 CNY
+
+2025-09-25 * "药品 #225"
+  Expenses:Health:买药                                        230.41 CNY
+  Assets:Digital:WeChatPay                                   -230.41 CNY
+
+2025-09-27 * "银行结息 #226"
+  Assets:DebitCard:CMB-111                                     42.50 CNY
+  Income:Interest                                             -42.50 CNY
+
+2025-09-30 * "IDE授权 #227"
+  Expenses:Software                                           115.25 CNY
+  Assets:Digital:AliPay                                      -115.25 CNY
+
+2025-10-01 * "银行结息 #228"
+  Assets:DebitCard:CMB-111                                     66.20 CNY
+  Income:Interest                                             -66.20 CNY
+
+2025-10-01 * "药品 #229"
+  Expenses:Health:买药                                         85.85 CNY
+  Liabilities:ConsumptionCredit:花呗                          -85.85 CNY
+
+2025-10-02 * "运动装备 #230"
+  Expenses:Personal:健身                                      496.26 CNY
+  Assets:Digital:WeChatPay                                   -496.26 CNY
+
+2025-10-05 * "共享单车 #231"
+  Expenses:Transport:共享单车                                   8.21 CNY
+  Assets:DebitCard:CMB-111                                     -8.21 CNY
+
+2025-10-06 * "支付服务费 #232"
+  Expenses:Fees:FutuHK                                          2.34 CNY
+  Assets:DebitCard:CMB-111                                     -2.34 CNY
+
+2025-10-09 * "体检 #233"
+  Expenses:Health:体检                                        337.03 CNY
+  Liabilities:ConsumptionCredit:花呗                         -337.03 CNY
+
+2025-10-09 * "共享单车 #234"
+  Expenses:Transport:共享单车                                  15.72 CNY
+  Liabilities:CreditCard:CMB-1222                             -15.72 CNY
+
+2025-10-11 * "支付服务费 #235"
+  Expenses:Fees:FutuHK                                          5.70 CNY
+  Assets:DebitCard:CMB-111                                     -5.70 CNY
+
+2025-10-13 * "眼镜 #236"
+  Expenses:Health:其他                                       1011.73 CNY
+  Assets:DebitCard:CMB-111                                  -1011.73 CNY
+
+2025-10-13 * "火车票 #237"
+  Expenses:Transport:飞机高铁                                 835.34 CNY
+  Assets:DebitCard:CMB-111                                   -835.34 CNY
+
+2025-10-13 * "肉类 #238"
+  Expenses:Food:生鲜蛋奶                                       60.25 CNY
+  Assets:DebitCard:CMB-111                                    -60.25 CNY
+
+2025-10-14 * "工资入账 #239"
+  Assets:DebitCard:CMB-111                                  16500.00 CNY
+  Income:Salary                                            -16500.00 CNY
+
+2025-10-15 * "网约车 #240"
+  Expenses:Transport:打车租车                                 455.37 CNY
+  Assets:Digital:AliPay                                      -455.37 CNY
+
+2025-10-15 * "个税 #241"
+  Expenses:Tax                                                950.64 CNY
+  Assets:Digital:AliPay                                      -950.64 CNY
+
+2025-10-16 * "出售二手物品 #242"
+  Assets:Digital:AliPay                                       500.00 CNY
+  Income:Sale                                                -500.00 CNY
+
+2025-10-16 * "银行手续费 #243"
+  Expenses:Fees:FutuHK                                         25.16 CNY
+  Assets:DebitCard:CMB-111                                    -25.16 CNY
+
+2025-10-17 * "杂项支出 #244"
+  Expenses:Other                                              233.61 CNY
+  Assets:DebitCard:CMB-111                                   -233.61 CNY
+
+2025-10-18 * "电影票 #245"
+  Expenses:Entertainment                                      317.84 CNY
+  Assets:Digital:AliPay                                      -317.84 CNY
+
+2025-10-19 * "物业费 #246"
+  Expenses:Housing:水电气暖物业                               278.78 CNY
+  Assets:DebitCard:CMB-111                                   -278.78 CNY
+
+2025-10-22 * "赎回基金 #247"
+  Assets:Investment:Fund:FUND005827                          -193.40 FUND005827  {} @ 2.784 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                537.43 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2025-10-24 * "归还个人借款 #248"
+  Liabilities:Personal                                       -500.00 CNY
+  Assets:DebitCard:CMB-111                                    500.00 CNY
+
+2025-10-24 * "镜片 #249"
+  Expenses:Health:其他                                       1098.09 CNY
+  Assets:Digital:WeChatPay                                  -1098.09 CNY
+
+2025-10-24 * "赎回基金 #250"
+  Assets:Investment:Fund:FUND005827                          -193.93 FUND005827  {} @ 2.796 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                541.23 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2025-10-25 * "赎回基金 #251"
+  Assets:Investment:Fund:FUND005827                           -59.02 FUND005827  {} @ 2.889 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                169.51 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2025-10-27 * "酒店住宿 #252"
+  Expenses:Housing:酒店                                       228.27 CNY
+  Assets:Digital:WeChatPay                                   -228.27 CNY
+
+2025-10-27 * "基金现金分红 #253"
+  Assets:Investment:FutuHKCash                                 56.85 CNY
+  Income:Investment:Fund:FUND005827:Dividend                  -56.85 CNY
+
+2025-10-30 * "护肤品 #254"
+  Expenses:Personal:个人护理                                  310.10 CNY
+  Assets:DebitCard:CMB-111                                   -310.10 CNY
+
+2025-10-30 * "基金现金分红 #255"
+  Assets:Investment:FutuHKCash                                 69.75 CNY
+  Income:Investment:Fund:FUND005827:Dividend                  -69.75 CNY
+
+2025-11-03 * "银行手续费 #256"
+  Expenses:Fees:FutuHK                                         19.31 CNY
+  Assets:Digital:WeChatPay                                    -19.31 CNY
+
+2025-11-05 * "游戏消费 #257"
+  Expenses:Entertainment                                      247.02 CNY
+  Assets:Digital:AliPay                                      -247.02 CNY
+
+2025-11-07 * "体检 #258"
+  Expenses:Health:体检                                        667.31 CNY
+  Assets:Digital:AliPay                                      -667.31 CNY
+
+2025-11-09 * "物业费 #259"
+  Expenses:Housing:水电气暖物业                               286.41 CNY
+  Assets:Digital:WeChatPay                                   -286.41 CNY
+
+2025-11-10 * "海鲜 #260"
+  Expenses:Food:生鲜蛋奶                                      223.53 CNY
+  Assets:Digital:WeChatPay                                   -223.53 CNY
+
+2025-11-12 * "电脑配件 #261"
+  Expenses:Electronics                                       3007.51 CNY
+  Assets:Digital:AliPay                                     -3007.51 CNY
+
+2025-11-13 * "电脑配件 #262"
+  Expenses:Electronics                                       1498.74 CNY
+  Liabilities:CreditCard:CMB-1222                           -1498.74 CNY
+
+2025-11-13 * "水果 #263"
+  Expenses:Food:水果蔬菜                                       13.00 CNY
+  Assets:DebitCard:CMB-111                                    -13.00 CNY
+
+2025-11-18 * "工资入账 #264"
+  Assets:DebitCard:CMB-111                                  17200.00 CNY
+  Income:Salary                                            -17200.00 CNY
+
+2025-11-18 * "共享单车 #265"
+  Expenses:Transport:共享单车                                  17.32 CNY
+  Assets:DebitCard:CMB-111                                    -17.32 CNY
+
+2025-11-19 * "医院检查 #266"
+  Expenses:Health:医院                                        716.60 CNY
+  Assets:Digital:AliPay                                      -716.60 CNY
+
+2025-11-21 * "租车 #267"
+  Expenses:Transport:打车租车                                 481.45 CNY
+  Assets:Digital:AliPay                                      -481.45 CNY
+
+2025-11-21 * "米面粮油 #268"
+  Expenses:Food:米面油料水                                     61.64 CNY
+  Assets:DebitCard:CMB-111                                    -61.64 CNY
+
+2025-11-22 * "维生素等 #269"
+  Expenses:Health:保健品                                      231.91 CNY
+  Assets:Digital:WeChatPay                                   -231.91 CNY
+
+2025-11-25 * "水费电费燃气费 #270"
+  Expenses:Housing:水电气暖物业                               384.56 CNY
+  Assets:Digital:AliPay                                      -384.56 CNY
+
+2025-11-26 * "停车费 #271"
+  Expenses:Transport:停车费                                    38.65 CNY
+  Assets:DebitCard:CMB-111                                    -38.65 CNY
+
+2025-11-27 * "美容护理 #272"
+  Expenses:Personal:个人护理                                   61.59 CNY
+  Assets:Digital:WeChatPay                                    -61.59 CNY
+
+2025-11-29 * "运动装备 #273"
+  Expenses:Personal:健身                                      144.28 CNY
+  Assets:Digital:AliPay                                      -144.28 CNY
+
+2025-12-02 * "偿还信用卡 #274"
+  Liabilities:CreditCard:CMB-1222                            -500.00 CNY
+  Assets:DebitCard:CMB-111                                    500.00 CNY
+
+2025-12-03 * "银行结息 #275"
+  Assets:DebitCard:CMB-111                                     42.50 CNY
+  Income:Interest                                             -42.50 CNY
+
+2025-12-03 * "医院检查 #276"
+  Expenses:Health:医院                                        453.27 CNY
+  Assets:DebitCard:CMB-111                                   -453.27 CNY
+
+2025-12-03 * "酒店住宿 #277"
+  Expenses:Housing:酒店                                       899.96 CNY
+  Liabilities:CreditCard:CMB-1222                            -899.96 CNY
+
+2025-12-03 * "赎回基金 #278"
+  Assets:Investment:Fund:FUND005827                          -186.49 FUND005827  {} @ 2.678 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                498.42 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2025-12-04 * "支付服务费 #279"
+  Expenses:Fees:FutuHK                                         17.64 CNY
+  Assets:Digital:AliPay                                       -17.64 CNY
+
+2025-12-08 * "袜子 #280"
+  Expenses:Personal:服饰和鞋                                  708.98 CNY
+  Assets:Digital:WeChatPay                                   -708.98 CNY
+
+2025-12-10 * "物业费 #281"
+  Expenses:Housing:水电气暖物业                               125.95 CNY
+  Assets:Digital:AliPay                                      -125.95 CNY
+
+2025-12-11 * "保洁 #282"
+  Expenses:Housing:维修清洁                                    48.95 CNY
+  Assets:Digital:WeChatPay                                    -48.95 CNY
+
+2025-12-13 * "眼镜 #283"
+  Expenses:Health:其他                                       1134.78 CNY
+  Assets:Digital:AliPay                                     -1134.78 CNY
+
+2025-12-13 * "赎回基金 #284"
+  Assets:Investment:Fund:FUND005827                           -40.11 FUND005827  {} @ 2.542 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                100.96 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2025-12-15 * "个护用品 #285"
+  Expenses:Personal:个人护理                                  343.21 CNY
+  Assets:Digital:AliPay                                      -343.21 CNY
+
+2025-12-15 * "基金分红再投资 #286"
+  Income:Investment:Fund:FUND005827:Dividend                  -43.43 CNY
+  Assets:Investment:Fund:FUND005827                          14.9810 FUND005827  {2.899 CNY}
+
+2025-12-18 * "维修 #287"
+  Expenses:Transport:保养修车                                1080.35 CNY
+  Assets:Digital:WeChatPay                                  -1080.35 CNY
+
+2025-12-18 * "海鲜 #288"
+  Expenses:Food:生鲜蛋奶                                       63.74 CNY
+  Assets:DebitCard:CMB-111                                    -63.74 CNY
+
+2025-12-21 * "认证考试 #289"
+  Expenses:Personal:教育                                     1681.03 CNY
+  Assets:Digital:WeChatPay                                  -1681.03 CNY
+
+2025-12-22 * "个护用品 #290"
+  Expenses:Personal:个人护理                                  174.90 CNY
+  Liabilities:ConsumptionCredit:花呗                         -174.90 CNY
+
+2025-12-25 * "理发 #291"
+  Expenses:Personal:个人护理                                   56.66 CNY
+  Assets:Digital:AliPay                                       -56.66 CNY
+
+2025-12-26 * "衣服 #292"
+  Expenses:Personal:服饰和鞋                                  260.85 CNY
+  Liabilities:ConsumptionCredit:花呗                         -260.85 CNY
+
+2025-12-28 * "饮料 #293"
+  Expenses:Food:饮料零食                                       87.56 CNY
+  Assets:Digital:AliPay                                       -87.56 CNY
+
+2025-12-29 * "认证考试 #294"
+  Expenses:Personal:教育                                      330.42 CNY
+  Liabilities:CreditCard:CMB-1222                            -330.42 CNY
+
+2025-12-29 * "个护用品 #295"
+  Expenses:Personal:个人护理                                  250.27 CNY
+  Liabilities:ConsumptionCredit:花呗                         -250.27 CNY
+
+2025-12-30 * "收纳用品 #296"
+  Expenses:Personal:生活日用品                                215.81 CNY
+  Liabilities:ConsumptionCredit:花呗                         -215.81 CNY
+
+2025-12-31 * "蔬菜 #297"
+  Expenses:Food:水果蔬菜                                       58.19 CNY
+  Assets:Digital:AliPay                                       -58.19 CNY
+
+2026-01-02 * "工资入账 #298"
+  Assets:DebitCard:CMB-111                                  17200.00 CNY
+  Income:Salary                                            -17200.00 CNY
+
+2026-01-02 * "酒店住宿 #299"
+  Expenses:Housing:酒店                                      1093.66 CNY
+  Assets:Digital:AliPay                                     -1093.66 CNY
+
+2026-01-02 * "赎回基金 #300"
+  Assets:Investment:Fund:FUND005827                          -143.60 FUND005827  {} @ 3.042 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                435.83 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-01-04 * "饮用水 #301"
+  Expenses:Food:米面油料水                                     24.96 CNY
+  Assets:Digital:WeChatPay                                    -24.96 CNY
+
+2026-01-06 * "米面粮油 #302"
+  Expenses:Food:米面油料水                                     61.93 CNY
+  Liabilities:CreditCard:CMB-1222                             -61.93 CNY
+
+2026-01-10 * "归还个人借款 #303"
+  Liabilities:Personal                                      -1000.00 CNY
+  Assets:DebitCard:CMB-111                                   1000.00 CNY
+
+2026-01-12 * "偿还信用卡 #304"
+  Liabilities:CreditCard:CMB-1222                           -2000.00 CNY
+  Assets:DebitCard:CMB-111                                   2000.00 CNY
+
+2026-01-13 * "供暖费 #305"
+  Expenses:Housing:水电气暖物业                               483.75 CNY
+  Assets:Digital:WeChatPay                                   -483.75 CNY
+
+2026-01-13 * "公交地铁 #306"
+  Expenses:Transport:公交地铁                                   4.40 CNY
+  Assets:DebitCard:CMB-111                                     -4.40 CNY
+
+2026-01-15 * "蔬菜 #307"
+  Expenses:Food:水果蔬菜                                       82.21 CNY
+  Liabilities:CreditCard:CMB-1222                             -82.21 CNY
+
+2026-01-17 * "护肤品 #308"
+  Expenses:Personal:个人护理                                  243.26 CNY
+  Liabilities:CreditCard:CMB-1222                            -243.26 CNY
+
+2026-01-22 * "停车费 #309"
+  Expenses:Transport:停车费                                    60.24 CNY
+  Liabilities:CreditCard:CMB-1222                             -60.24 CNY
+
+2026-01-24 * "交通罚款 #310"
+  Expenses:Transport:罚款                                     171.11 CNY
+  Assets:Digital:AliPay                                      -171.11 CNY
+
+2026-01-24 * "零食 #311"
+  Expenses:Food:饮料零食                                       23.68 CNY
+  Liabilities:CreditCard:CMB-1222                             -23.68 CNY
+
+2026-01-24 * "衣服 #312"
+  Expenses:Personal:服饰和鞋                                  895.00 CNY
+  Liabilities:ConsumptionCredit:花呗                         -895.00 CNY
+
+2026-01-26 * "工资入账 #313"
+  Assets:DebitCard:CMB-111                                  16000.00 CNY
+  Income:Salary                                            -16000.00 CNY
+
+2026-01-29 * "鞋子 #314"
+  Expenses:Personal:服饰和鞋                                   97.20 CNY
+  Assets:DebitCard:CMB-111                                    -97.20 CNY
+
+2026-01-31 * "机票 #315"
+  Expenses:Transport:飞机高铁                                1260.56 CNY
+  Assets:Digital:AliPay                                     -1260.56 CNY
+
+2026-01-31 * "供暖费 #316"
+  Expenses:Housing:水电气暖物业                              1144.58 CNY
+  Liabilities:CreditCard:CMB-1222                           -1144.58 CNY
+
+2026-02-02 * "物业费 #317"
+  Expenses:Housing:水电气暖物业                               328.35 CNY
+  Assets:DebitCard:CMB-111                                   -328.35 CNY
+
+2026-02-02 * "眼镜 #318"
+  Expenses:Health:其他                                        992.01 CNY
+  Assets:Digital:WeChatPay                                   -992.01 CNY
+
+2026-02-03 * "火车票 #319"
+  Expenses:Transport:飞机高铁                                 100.55 CNY
+  Assets:Digital:AliPay                                      -100.55 CNY
+
+2026-02-03 * "共享单车 #320"
+  Expenses:Transport:共享单车                                  10.37 CNY
+  Assets:DebitCard:CMB-111                                    -10.37 CNY
+
+2026-02-09 * "共享单车 #321"
+  Expenses:Transport:共享单车                                  13.61 CNY
+  Assets:Digital:AliPay                                       -13.61 CNY
+
+2026-02-10 * "银行结息 #322"
+  Assets:DebitCard:CMB-111                                     66.20 CNY
+  Income:Interest                                             -66.20 CNY
+
+2026-02-10 * "交通罚款 #323"
+  Expenses:Transport:罚款                                     144.63 CNY
+  Assets:Digital:WeChatPay                                   -144.63 CNY
+
+2026-02-10 * "水果 #324"
+  Expenses:Food:水果蔬菜                                      106.11 CNY
+  Assets:Digital:AliPay                                      -106.11 CNY
+
+2026-02-11 * "车辆保养 #325"
+  Expenses:Transport:保养修车                                 610.48 CNY
+  Assets:DebitCard:CMB-111                                   -610.48 CNY
+
+2026-02-11 * "体检 #326"
+  Expenses:Health:体检                                        260.55 CNY
+  Assets:DebitCard:CMB-111                                   -260.55 CNY
+
+2026-02-12 * "临时支出 #327"
+  Expenses:Other                                              103.65 CNY
+  Assets:Digital:WeChatPay                                   -103.65 CNY
+
+2026-02-13 * "工资入账 #328"
+  Assets:DebitCard:CMB-111                                  16000.00 CNY
+  Income:Salary                                            -16000.00 CNY
+
+2026-02-13 * "护肤品 #329"
+  Expenses:Personal:个人护理                                  117.22 CNY
+  Assets:Digital:WeChatPay                                   -117.22 CNY
+
+2026-02-17 * "运动装备 #330"
+  Expenses:Personal:健身                                      352.32 CNY
+  Assets:Digital:WeChatPay                                   -352.32 CNY
+
+2026-02-22 * "美容护理 #331"
+  Expenses:Personal:个人护理                                  284.84 CNY
+  Assets:Digital:AliPay                                      -284.84 CNY
+
+2026-02-23 * "工资入账 #332"
+  Assets:DebitCard:CMB-111                                  12500.00 CNY
+  Income:Salary                                            -12500.00 CNY
+
+2026-02-23 * "租车 #333"
+  Expenses:Transport:打车租车                                 317.37 CNY
+  Assets:Digital:AliPay                                      -317.37 CNY
+
+2026-02-24 * "衣服 #334"
+  Expenses:Personal:服饰和鞋                                  579.91 CNY
+  Assets:Digital:WeChatPay                                   -579.91 CNY
+
+2026-02-25 * "快餐 #335"
+  Expenses:Food:快餐外卖                                       49.61 CNY
+  Assets:Digital:WeChatPay                                    -49.61 CNY
+
+2026-02-28 * "个税 #336"
+  Expenses:Tax                                               1170.51 CNY
+  Assets:Digital:AliPay                                     -1170.51 CNY
+
+2026-03-01 * "水费电费燃气费 #337"
+  Expenses:Housing:水电气暖物业                                90.78 CNY
+  Liabilities:ConsumptionCredit:花呗                          -90.78 CNY
+
+2026-03-02 * "公交地铁 #338"
+  Expenses:Transport:公交地铁                                  14.36 CNY
+  Liabilities:ConsumptionCredit:花呗                          -14.36 CNY
+
+2026-03-02 * "镜片 #339"
+  Expenses:Health:其他                                        613.03 CNY
+  Assets:Digital:AliPay                                      -613.03 CNY
+
+2026-03-04 * "水果 #340"
+  Expenses:Food:水果蔬菜                                       58.25 CNY
+  Assets:Digital:WeChatPay                                    -58.25 CNY
+
+2026-03-06 * "考试报名费 #341"
+  Expenses:Personal:教育                                      150.15 CNY
+  Assets:Digital:WeChatPay                                   -150.15 CNY
+
+2026-03-06 * "饮料 #342"
+  Expenses:Food:饮料零食                                       97.42 CNY
+  Assets:Digital:WeChatPay                                    -97.42 CNY
+
+2026-03-11 * "银行结息 #343"
+  Assets:DebitCard:CMB-111                                     15.76 CNY
+  Income:Interest                                             -15.76 CNY
+
+2026-03-12 * "家电 #344"
+  Expenses:Electronics                                        422.65 CNY
+  Assets:Digital:AliPay                                      -422.65 CNY
+
+2026-03-13 * "肉类 #345"
+  Expenses:Food:生鲜蛋奶                                       14.94 CNY
+  Assets:DebitCard:CMB-111                                    -14.94 CNY
+
+2026-03-13 * "理发 #346"
+  Expenses:Personal:个人护理                                   36.83 CNY
+  Assets:Digital:AliPay                                       -36.83 CNY
+
+2026-03-14 * "收纳用品 #347"
+  Expenses:Personal:生活日用品                                213.29 CNY
+  Assets:Digital:AliPay                                      -213.29 CNY
+
+2026-03-18 * "饮用水 #348"
+  Expenses:Food:米面油料水                                     38.71 CNY
+  Assets:Digital:WeChatPay                                    -38.71 CNY
+
+2026-03-18 * "咖啡 #349"
+  Expenses:Food:饮料零食                                       93.54 CNY
+  Assets:Digital:WeChatPay                                    -93.54 CNY
+
+2026-03-19 * "考试报名费 #350"
+  Expenses:Personal:教育                                      869.50 CNY
+  Liabilities:ConsumptionCredit:花呗                         -869.50 CNY
+
+2026-03-19 * "赎回基金 #351"
+  Assets:Investment:Fund:FUND005827                          -146.63 FUND005827  {} @ 1.176 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                171.44 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-03-21 * "账户间转账 #352"
+  Assets:Digital:AliPay                                       200.00 CNY
+  Assets:DebitCard:CMB-111                                   -200.00 CNY
+
+2026-03-21 * "赎回基金 #353"
+  Assets:Investment:Fund:FUND005827                           -49.69 FUND005827  {} @ 2.090 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                102.85 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-03-22 * "鸡蛋牛奶 #354"
+  Expenses:Food:生鲜蛋奶                                      218.59 CNY
+  Assets:DebitCard:CMB-111                                   -218.59 CNY
+
+2026-03-22 * "充电 #355"
+  Expenses:Transport:加油充电                                 254.96 CNY
+  Assets:Digital:AliPay                                      -254.96 CNY
+
+2026-03-25 * "共享单车 #356"
+  Expenses:Transport:共享单车                                   1.58 CNY
+  Assets:DebitCard:CMB-111                                     -1.58 CNY
+
+2026-03-27 * "理发 #357"
+  Expenses:Personal:个人护理                                   57.69 CNY
+  Assets:Digital:WeChatPay                                    -57.69 CNY
+
+2026-03-27 * "月租房租 #358"
+  Expenses:Housing:租房                                      2660.02 CNY
+  Assets:Digital:AliPay                                     -2660.02 CNY
+
+2026-03-28 * "酒店住宿 #359"
+  Expenses:Housing:酒店                                       214.92 CNY
+  Assets:DebitCard:CMB-111                                   -214.92 CNY
+
+2026-03-28 * "加油 #360"
+  Expenses:Transport:加油充电                                 311.24 CNY
+  Assets:Digital:WeChatPay                                   -311.24 CNY
+
+2026-04-02 * "咖啡 #361"
+  Expenses:Food:饮料零食                                       64.25 CNY
+  Liabilities:CreditCard:CMB-1222                             -64.25 CNY
+
+2026-04-04 * "月租房租 #362"
+  Expenses:Housing:租房                                      3111.22 CNY
+  Assets:Digital:WeChatPay                                  -3111.22 CNY
+
+2026-04-05 * "医院检查 #363"
+  Expenses:Health:医院                                        895.99 CNY
+  Liabilities:ConsumptionCredit:花呗                         -895.99 CNY
+
+2026-04-05 * "赎回基金 #364"
+  Assets:Investment:Fund:FUND005827                          -175.58 FUND005827  {} @ 3.047 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                533.99 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-04-06 * "账户间转账 #365"
+  Assets:Digital:AliPay                                       100.00 CNY
+  Assets:DebitCard:CMB-111                                   -100.00 CNY
+
+2026-04-06 * "收纳用品 #366"
+  Expenses:Personal:生活日用品                                 27.37 CNY
+  Assets:DebitCard:CMB-111                                    -27.37 CNY
+
+2026-04-07 * "技术书籍 #367"
+  Expenses:Personal:教育                                      655.20 CNY
+  Liabilities:CreditCard:CMB-1222                            -655.20 CNY
+
+2026-04-07 * "供暖费 #368"
+  Expenses:Housing:水电气暖物业                               901.71 CNY
+  Liabilities:CreditCard:CMB-1222                            -901.71 CNY
+
+2026-04-08 * "赎回基金 #369"
+  Assets:Investment:Fund:FUND005827                           -46.86 FUND005827  {} @ 2.408 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                111.84 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-04-11 * "键盘 #370"
+  Expenses:Electronics                                       1910.93 CNY
+  Assets:Digital:WeChatPay                                  -1910.93 CNY
+
+2026-04-17 * "归还个人借款 #371"
+  Liabilities:Personal                                      -2000.00 CNY
+  Assets:DebitCard:CMB-111                                   2000.00 CNY
+
+2026-04-17 * "健身房月卡 #372"
+  Expenses:Personal:健身                                      179.17 CNY
+  Assets:Digital:WeChatPay                                   -179.17 CNY
+
+2026-04-17 * "临时支出 #373"
+  Expenses:Other                                              233.52 CNY
+  Liabilities:ConsumptionCredit:花呗                         -233.52 CNY
+
+2026-04-18 * "工资入账 #374"
+  Assets:DebitCard:CMB-111                                  12500.00 CNY
+  Income:Salary                                            -12500.00 CNY
+
+2026-04-18 * "健身房月卡 #375"
+  Expenses:Personal:健身                                      269.62 CNY
+  Liabilities:CreditCard:CMB-1222                            -269.62 CNY
+
+2026-04-19 * "药品 #376"
+  Expenses:Health:买药                                        178.11 CNY
+  Assets:Digital:AliPay                                      -178.11 CNY
+
+2026-04-20 * "理发 #377"
+  Expenses:Personal:个人护理                                   65.20 CNY
+  Assets:Digital:AliPay                                       -65.20 CNY
+
+2026-04-22 * "赎回基金 #378"
+  Assets:Investment:Fund:FUND005827                           -90.90 FUND005827  {} @ 1.277 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                115.08 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-04-24 * "加油 #379"
+  Expenses:Transport:加油充电                                  83.12 CNY
+  Assets:Digital:AliPay                                       -83.12 CNY
+
+2026-04-25 * "赎回基金 #380"
+  Assets:Investment:Fund:FUND005827                          -195.74 FUND005827  {} @ 2.081 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                406.33 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-04-29 * "在线课程 #381"
+  Expenses:Personal:教育                                     1384.32 CNY
+  Liabilities:CreditCard:CMB-1222                           -1384.32 CNY
+
+2026-04-29 * "赎回基金 #382"
+  Assets:Investment:Fund:FUND005827                          -170.56 FUND005827  {} @ 3.474 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                591.53 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-05-03 * "个税 #383"
+  Expenses:Tax                                               1765.85 CNY
+  Assets:DebitCard:CMB-111                                  -1765.85 CNY
+
+2026-05-03 * "快餐 #384"
+  Expenses:Food:快餐外卖                                       81.50 CNY
+  Assets:Digital:AliPay                                       -81.50 CNY
+
+2026-05-04 * "公交地铁 #385"
+  Expenses:Transport:公交地铁                                  16.76 CNY
+  Assets:Digital:WeChatPay                                    -16.76 CNY
+
+2026-05-07 * "账户间转账 #386"
+  Assets:Digital:AliPay                                       500.00 CNY
+  Assets:DebitCard:CMB-111                                   -500.00 CNY
+
+2026-05-08 * "在线课程 #387"
+  Expenses:Personal:教育                                     1281.44 CNY
+  Assets:Digital:AliPay                                     -1281.44 CNY
+
+2026-05-08 * "保洁 #388"
+  Expenses:Housing:维修清洁                                   348.72 CNY
+  Assets:Digital:AliPay                                      -348.72 CNY
+
+2026-05-08 * "赎回基金 #389"
+  Assets:Investment:Fund:FUND005827                          -109.19 FUND005827  {} @ 2.454 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                266.95 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-05-09 * "停车费 #390"
+  Expenses:Transport:停车费                                     6.36 CNY
+  Assets:DebitCard:CMB-111                                     -6.36 CNY
+
+2026-05-15 * "公交地铁 #391"
+  Expenses:Transport:公交地铁                                  19.08 CNY
+  Liabilities:CreditCard:CMB-1222                             -19.08 CNY
+
+2026-05-17 * "赎回基金 #392"
+  Assets:Investment:Fund:FUND005827                          -295.95 FUND005827  {} @ 1.492 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                440.56 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-05-18 * "药品 #393"
+  Expenses:Health:买药                                        299.96 CNY
+  Assets:Digital:AliPay                                      -299.96 CNY
+
+2026-05-18 * "保洁 #394"
+  Expenses:Housing:维修清洁                                   212.26 CNY
+  Assets:Digital:AliPay                                      -212.26 CNY
+
+2026-05-18 * "月租房租 #395"
+  Expenses:Housing:租房                                      2350.08 CNY
+  Assets:Digital:AliPay                                     -2350.08 CNY
+
+2026-05-20 * "域名续费 #396"
+  Expenses:Software                                           122.44 CNY
+  Liabilities:CreditCard:CMB-1222                            -122.44 CNY
+
+2026-05-22 * "机票 #397"
+  Expenses:Transport:飞机高铁                                 693.93 CNY
+  Assets:Digital:WeChatPay                                   -693.93 CNY
+
+2026-05-23 * "收纳用品 #398"
+  Expenses:Personal:生活日用品                                214.36 CNY
+  Liabilities:CreditCard:CMB-1222                            -214.36 CNY
+
+2026-05-23 * "快餐 #399"
+  Expenses:Food:快餐外卖                                       29.37 CNY
+  Assets:Digital:AliPay                                       -29.37 CNY
+
+2026-05-23 * "护肤品 #400"
+  Expenses:Personal:个人护理                                   72.42 CNY
+  Assets:Digital:AliPay                                       -72.42 CNY
+
+2026-05-24 * "银行手续费 #401"
+  Expenses:Fees:FutuHK                                         18.33 CNY
+  Liabilities:CreditCard:CMB-1222                             -18.33 CNY
+
+2026-05-25 * "洗护用品 #402"
+  Expenses:Personal:个人护理                                  306.48 CNY
+  Assets:Digital:WeChatPay                                   -306.48 CNY
+
+2026-05-27 * "医院检查 #403"
+  Expenses:Health:医院                                        445.94 CNY
+  Liabilities:CreditCard:CMB-1222                            -445.94 CNY
+
+2026-06-01 * "租车 #404"
+  Expenses:Transport:打车租车                                 456.50 CNY
+  Assets:Digital:AliPay                                      -456.50 CNY
+
+2026-06-02 * "理发 #405"
+  Expenses:Personal:个人护理                                   49.92 CNY
+  Liabilities:CreditCard:CMB-1222                             -49.92 CNY
+
+2026-06-03 * "公交地铁 #406"
+  Expenses:Transport:公交地铁                                  15.63 CNY
+  Assets:DebitCard:CMB-111                                    -15.63 CNY
+
+2026-06-03 * "游戏消费 #407"
+  Expenses:Entertainment                                      170.48 CNY
+  Assets:Digital:WeChatPay                                   -170.48 CNY
+
+2026-06-04 * "停车费 #408"
+  Expenses:Transport:停车费                                    48.91 CNY
+  Assets:Digital:AliPay                                       -48.91 CNY
+
+2026-06-05 * "账户间转账 #409"
+  Assets:Digital:AliPay                                       500.00 CNY
+  Assets:DebitCard:CMB-111                                   -500.00 CNY
+
+2026-06-05 * "门诊挂号 #410"
+  Expenses:Health:医院                                        277.15 CNY
+  Liabilities:ConsumptionCredit:花呗                         -277.15 CNY
+
+2026-06-07 * "玩具 #411"
+  Expenses:Entertainment                                      384.00 CNY
+  Assets:DebitCard:CMB-111                                   -384.00 CNY
+
+2026-06-08 * "交通罚款 #412"
+  Expenses:Transport:罚款                                     150.64 CNY
+  Assets:Digital:AliPay                                      -150.64 CNY
+
+2026-06-09 * "蔬菜 #413"
+  Expenses:Food:水果蔬菜                                      138.56 CNY
+  Assets:DebitCard:CMB-111                                   -138.56 CNY
+
+2026-06-10 * "支付服务费 #414"
+  Expenses:Fees:FutuHK                                         24.16 CNY
+  Liabilities:CreditCard:CMB-1222                             -24.16 CNY
+
+2026-06-12 * "账户间转账 #415"
+  Assets:Digital:AliPay                                      1000.00 CNY
+  Assets:DebitCard:CMB-111                                  -1000.00 CNY
+
+2026-06-12 * "医疗保险 #416"
+  Expenses:Insurance                                         1001.67 CNY
+  Assets:Digital:WeChatPay                                  -1001.67 CNY
+
+2026-06-13 * "机票 #417"
+  Expenses:Transport:飞机高铁                                1091.34 CNY
+  Assets:DebitCard:CMB-111                                  -1091.34 CNY
+
+2026-06-14 * "出售二手物品 #418"
+  Assets:Digital:AliPay                                        80.00 CNY
+  Income:Sale                                                 -80.00 CNY
+
+2026-06-16 * "门诊挂号 #419"
+  Expenses:Health:医院                                        818.54 CNY
+  Assets:Digital:AliPay                                      -818.54 CNY
+
+2026-06-20 * "物业费 #420"
+  Expenses:Housing:水电气暖物业                               367.25 CNY
+  Assets:Digital:AliPay                                      -367.25 CNY
+
+2026-06-22 * "纸巾 #421"
+  Expenses:Personal:生活日用品                                289.73 CNY
+  Assets:Digital:WeChatPay                                   -289.73 CNY
+
+2026-06-23 * "赎回基金 #422"
+  Assets:Investment:Fund:FUND005827                          -215.35 FUND005827  {} @ 2.061 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                442.84 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-06-24 * "出售二手物品 #423"
+  Assets:Digital:AliPay                                        80.00 CNY
+  Income:Sale                                                 -80.00 CNY
+
+2026-06-25 * "停车费 #424"
+  Expenses:Transport:停车费                                     6.86 CNY
+  Assets:Digital:AliPay                                        -6.86 CNY
+
+2026-06-27 * "公交地铁 #425"
+  Expenses:Transport:公交地铁                                  28.61 CNY
+  Liabilities:CreditCard:CMB-1222                             -28.61 CNY
+
+2026-06-27 * "域名续费 #426"
+  Expenses:Software                                           286.57 CNY
+  Assets:Digital:AliPay                                      -286.57 CNY
+
+2026-06-28 * "赎回基金 #427"
+  Assets:Investment:Fund:FUND005827                          -239.66 FUND005827  {} @ 1.673 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                399.95 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-06-29 * "月租房租 #428"
+  Expenses:Housing:租房                                      2675.11 CNY
+  Assets:DebitCard:CMB-111                                  -2675.11 CNY
+
+2026-06-29 * "眼镜 #429"
+  Expenses:Health:其他                                        105.90 CNY
+  Assets:DebitCard:CMB-111                                   -105.90 CNY
+
+2026-07-07 * "美容护理 #430"
+  Expenses:Personal:个人护理                                  103.12 CNY
+  Assets:DebitCard:CMB-111                                   -103.12 CNY
+
+2026-07-07 * "保洁 #431"
+  Expenses:Housing:维修清洁                                   196.80 CNY
+  Assets:Digital:WeChatPay                                   -196.80 CNY
+
+2026-07-08 * "咖啡 #432"
+  Expenses:Food:饮料零食                                       28.79 CNY
+  Assets:DebitCard:CMB-111                                    -28.79 CNY
+
+2026-07-10 * "基金分红再投资 #433"
+  Income:Investment:Fund:FUND005827:Dividend                  -73.67 CNY
+  Assets:Investment:Fund:FUND005827                          34.3130 FUND005827  {2.147 CNY}
+
+2026-07-13 * "技术书籍 #434"
+  Expenses:Personal:教育                                      251.24 CNY
+  Assets:DebitCard:CMB-111                                   -251.24 CNY
+
+2026-07-13 * "清洁用品 #435"
+  Expenses:Personal:生活日用品                                 55.98 CNY
+  Assets:Digital:WeChatPay                                    -55.98 CNY
+
+2026-07-13 * "赎回基金 #436"
+  Assets:Investment:Fund:FUND005827                           -52.87 FUND005827  {} @ 2.295 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                120.34 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-07-14 * "工资入账 #437"
+  Assets:DebitCard:CMB-111                                  16000.00 CNY
+  Income:Salary                                            -16000.00 CNY
+
+2026-07-15 * "理发 #438"
+  Expenses:Personal:个人护理                                   48.69 CNY
+  Liabilities:CreditCard:CMB-1222                             -48.69 CNY
+
+2026-07-15 * "基金分红再投资 #439"
+  Income:Investment:Fund:FUND005827:Dividend                  -22.06 CNY
+  Assets:Investment:Fund:FUND005827                           9.3753 FUND005827  {2.353 CNY}
+
+2026-07-18 * "网约车 #440"
+  Expenses:Transport:打车租车                                 212.88 CNY
+  Assets:Digital:AliPay                                      -212.88 CNY
+
+2026-07-21 * "出售二手物品 #441"
+  Assets:Digital:AliPay                                       100.00 CNY
+  Income:Sale                                                -100.00 CNY
+
+2026-07-23 * "蔬菜 #442"
+  Expenses:Food:水果蔬菜                                       66.99 CNY
+  Assets:DebitCard:CMB-111                                    -66.99 CNY
+
+2026-07-24 * "供暖费 #443"
+  Expenses:Housing:水电气暖物业                               983.57 CNY
+  Liabilities:CreditCard:CMB-1222                            -983.57 CNY
+
+2026-07-25 * "出售二手物品 #444"
+  Assets:Digital:AliPay                                        50.00 CNY
+  Income:Sale                                                 -50.00 CNY
+
+2026-07-26 * "工资入账 #445"
+  Assets:DebitCard:CMB-111                                  15000.00 CNY
+  Income:Salary                                            -15000.00 CNY
+
+2026-07-26 * "对账尾差调整 #446"
+  Equity:BadDebts                                               2.00 CNY
+  Assets:Digital:AliPay                                        -2.00 CNY
+
+2026-07-27 * "银行手续费 #447"
+  Expenses:Fees:FutuHK                                          4.83 CNY
+  Assets:DebitCard:CMB-111                                     -4.83 CNY
+
+2026-07-27 * "赎回基金 #448"
+  Assets:Investment:Fund:FUND005827                          -125.57 FUND005827  {} @ 2.523 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                315.81 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-07-28 * "个护用品 #449"
+  Expenses:Personal:个人护理                                  390.34 CNY
+  Assets:Digital:AliPay                                      -390.34 CNY
+
+2026-07-29 * "水果 #450"
+  Expenses:Food:水果蔬菜                                       49.83 CNY
+  Liabilities:CreditCard:CMB-1222                             -49.83 CNY
+
+2026-07-29 * "水果 #451"
+  Expenses:Food:水果蔬菜                                       15.75 CNY
+  Assets:Digital:WeChatPay                                    -15.75 CNY
+
+2026-08-01 * "基金分红再投资 #452"
+  Income:Investment:Fund:FUND005827:Dividend                  -99.18 CNY
+  Assets:Investment:Fund:FUND005827                          40.8653 FUND005827  {2.427 CNY}
+
+2026-08-02 * "公交地铁 #453"
+  Expenses:Transport:公交地铁                                   4.90 CNY
+  Assets:Digital:AliPay                                        -4.90 CNY
+
+2026-08-04 * "共享单车 #454"
+  Expenses:Transport:共享单车                                  16.29 CNY
+  Assets:Digital:WeChatPay                                    -16.29 CNY
+
+2026-08-04 * "水费电费燃气费 #455"
+  Expenses:Housing:水电气暖物业                                50.38 CNY
+  Assets:Digital:WeChatPay                                    -50.38 CNY
+
+2026-08-04 * "对账尾差调整 #456"
+  Equity:BadDebts                                               0.50 CNY
+  Assets:Digital:AliPay                                        -0.50 CNY
+
+2026-08-06 * "水费电费燃气费 #457"
+  Expenses:Housing:水电气暖物业                               360.11 CNY
+  Assets:DebitCard:CMB-111                                   -360.11 CNY
+
+2026-08-12 * "赎回基金 #458"
+  Assets:Investment:Fund:FUND005827                          -296.48 FUND005827  {} @ 2.897 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                857.90 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-08-18 * "工资入账 #459"
+  Assets:DebitCard:CMB-111                                  12500.00 CNY
+  Income:Salary                                            -12500.00 CNY
+
+2026-08-21 * "车辆保养 #460"
+  Expenses:Transport:保养修车                                 797.23 CNY
+  Assets:Digital:WeChatPay                                   -797.23 CNY
+
+2026-08-23 * "鸡蛋牛奶 #461"
+  Expenses:Food:生鲜蛋奶                                      119.06 CNY
+  Assets:Digital:AliPay                                      -119.06 CNY
+
+2026-08-24 * "基金现金分红 #462"
+  Assets:Investment:FutuHKCash                                 40.60 CNY
+  Income:Investment:Fund:FUND005827:Dividend                  -40.60 CNY
+
+2026-08-26 * "药品 #463"
+  Expenses:Health:买药                                         21.41 CNY
+  Liabilities:CreditCard:CMB-1222                             -21.41 CNY
+
+2026-09-02 * "停车费 #464"
+  Expenses:Transport:停车费                                    38.81 CNY
+  Assets:Digital:WeChatPay                                    -38.81 CNY
+
+2026-09-02 * "赎回基金 #465"
+  Assets:Investment:Fund:FUND005827                          -108.90 FUND005827  {} @ 1.781 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                192.95 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-09-06 * "酒店住宿 #466"
+  Expenses:Housing:酒店                                       983.55 CNY
+  Liabilities:CreditCard:CMB-1222                            -983.55 CNY
+
+2026-09-09 * "赎回基金 #467"
+  Assets:Investment:Fund:FUND005827                          -155.94 FUND005827  {} @ 2.743 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                426.74 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-09-10 * "体检 #468"
+  Expenses:Health:体检                                        126.04 CNY
+  Assets:Digital:AliPay                                      -126.04 CNY
+
+2026-09-11 * "赎回基金 #469"
+  Assets:Investment:Fund:FUND005827                          -109.17 FUND005827  {} @ 1.403 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                152.17 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-09-12 * "IDE授权 #470"
+  Expenses:Software                                            83.81 CNY
+  Assets:DebitCard:CMB-111                                    -83.81 CNY
+
+2026-09-12 * "玩具 #471"
+  Expenses:Entertainment                                      287.38 CNY
+  Assets:Digital:AliPay                                      -287.38 CNY
+
+2026-09-12 * "药品 #472"
+  Expenses:Health:买药                                        225.89 CNY
+  Assets:Digital:WeChatPay                                   -225.89 CNY
+
+2026-09-13 * "公交地铁 #473"
+  Expenses:Transport:公交地铁                                  16.82 CNY
+  Liabilities:CreditCard:CMB-1222                             -16.82 CNY
+
+2026-09-13 * "药品 #474"
+  Expenses:Health:买药                                        112.48 CNY
+  Assets:Digital:WeChatPay                                   -112.48 CNY
+
+2026-09-16 * "肉类 #475"
+  Expenses:Food:生鲜蛋奶                                       12.52 CNY
+  Assets:DebitCard:CMB-111                                    -12.52 CNY
+
+2026-09-16 * "健身房月卡 #476"
+  Expenses:Personal:健身                                       96.24 CNY
+  Assets:Digital:AliPay                                       -96.24 CNY
+
+2026-09-16 * "停车费 #477"
+  Expenses:Transport:停车费                                    10.67 CNY
+  Assets:Digital:AliPay                                       -10.67 CNY
+
+2026-09-17 * "交通罚款 #478"
+  Expenses:Transport:罚款                                     203.50 CNY
+  Assets:Digital:AliPay                                      -203.50 CNY
+
+2026-09-18 * "交通罚款 #479"
+  Expenses:Transport:罚款                                     150.70 CNY
+  Assets:Digital:WeChatPay                                   -150.70 CNY
+
+2026-09-19 * "肉类 #480"
+  Expenses:Food:生鲜蛋奶                                       59.18 CNY
+  Assets:Digital:WeChatPay                                    -59.18 CNY
+
+2026-09-21 * "银行结息 #481"
+  Assets:DebitCard:CMB-111                                     42.50 CNY
+  Income:Interest                                             -42.50 CNY
+
+2026-09-22 * "物业费 #482"
+  Expenses:Housing:水电气暖物业                               368.02 CNY
+  Liabilities:ConsumptionCredit:花呗                         -368.02 CNY
+
+2026-09-24 * "理发 #483"
+  Expenses:Personal:个人护理                                   38.38 CNY
+  Liabilities:CreditCard:CMB-1222                             -38.38 CNY
+
+2026-09-27 * "银行结息 #484"
+  Assets:DebitCard:CMB-111                                     23.11 CNY
+  Income:Interest                                             -23.11 CNY
+
+2026-09-29 * "杂项支出 #485"
+  Expenses:Other                                               73.06 CNY
+  Assets:Digital:AliPay                                       -73.06 CNY
+
+2026-10-01 * "银行手续费 #486"
+  Expenses:Fees:FutuHK                                         28.95 CNY
+  Assets:DebitCard:CMB-111                                    -28.95 CNY
+
+2026-10-02 * "工资入账 #487"
+  Assets:DebitCard:CMB-111                                  16500.00 CNY
+  Income:Salary                                            -16500.00 CNY
+
+2026-10-07 * "工资入账 #488"
+  Assets:DebitCard:CMB-111                                  12500.00 CNY
+  Income:Salary                                            -12500.00 CNY
+
+2026-10-08 * "耳机 #489"
+  Expenses:Electronics                                       3555.83 CNY
+  Assets:Digital:WeChatPay                                  -3555.83 CNY
+
+2026-10-08 * "共享单车 #490"
+  Expenses:Transport:共享单车                                   4.62 CNY
+  Assets:DebitCard:CMB-111                                     -4.62 CNY
+
+2026-10-09 * "电脑配件 #491"
+  Expenses:Electronics                                       3146.44 CNY
+  Assets:Digital:AliPay                                     -3146.44 CNY
+
+2026-10-10 * "午餐外卖 #492"
+  Expenses:Food:快餐外卖                                       40.44 CNY
+  Liabilities:CreditCard:CMB-1222                             -40.44 CNY
+
+2026-10-10 * "共享单车 #493"
+  Expenses:Transport:共享单车                                   2.46 CNY
+  Assets:DebitCard:CMB-111                                     -2.46 CNY
+
+2026-10-13 * "归还个人借款 #494"
+  Liabilities:Personal                                      -2000.00 CNY
+  Assets:DebitCard:CMB-111                                   2000.00 CNY
+
+2026-10-14 * "体检 #495"
+  Expenses:Health:体检                                        212.07 CNY
+  Assets:Digital:AliPay                                      -212.07 CNY
+
+2026-10-17 * "水费电费燃气费 #496"
+  Expenses:Housing:水电气暖物业                               140.35 CNY
+  Assets:Digital:WeChatPay                                   -140.35 CNY
+
+2026-10-17 * "药品 #497"
+  Expenses:Health:买药                                        272.02 CNY
+  Assets:DebitCard:CMB-111                                   -272.02 CNY
+
+2026-10-17 * "赎回基金 #498"
+  Assets:Investment:Fund:FUND005827                           -65.52 FUND005827  {} @ 3.272 CNY
+  Expenses:Fees:FutuHK                                          1.00 CNY
+  Assets:Investment:FutuHKCash                                213.38 CNY
+  Income:Investment:Fund:FUND005827:PnL
+
+2026-10-17 * "基金现金分红 #499"
+  Assets:Investment:FutuHKCash                                 14.26 CNY
+  Income:Investment:Fund:FUND005827:Dividend                  -14.26 CNY
+
+2026-10-20 * "维生素等 #500"
+  Expenses:Health:保健品                                      282.69 CNY
+  Assets:Digital:AliPay                                      -282.69 CNY

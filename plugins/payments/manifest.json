@@ -1,0 +1,8 @@
+{
+  "id": "payments",
+  "name": "账单导入",
+  "version": "1.0.0",
+  "description": "导入支付账单、审核重复交易并复用 AI 分类。",
+  "frontend": "frontend.tsx",
+  "backend": "backend.ts"
+}

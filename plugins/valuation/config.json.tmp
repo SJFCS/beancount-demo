@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "accounts": [
+    {
+      "account": "Assets:Valuation:GlobalFund:Total",
+      "currency": "GLOBAL_FUND_USD",
+      "pnlAccount": "Income:Valuation:GlobalFund:PnL",
+      "quote": "USD"
+    },
+    {
+      "account": "Assets:Valuation:EuroFund:Total",
+      "currency": "EURO_FUND_EUR",
+      "pnlAccount": "Income:Valuation:EuroFund:PnL",
+      "quote": "EUR"
+    },
+    {
+      "account": "Assets:Valuation:ChinaFund:Total",
+      "currency": "CHINA_FUND_CNY",
+      "pnlAccount": "Income:Valuation:ChinaFund:PnL",
+      "quote": "CNY"
+    }
+  ]
+}
