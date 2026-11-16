@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "alipay-success",
+      "name": "支付宝 · 支付成功",
+      "enabled": true,
+      "packageName": "com.eg.android.AlipayGphone",
+      "containsAny": [
+        "支付成功",
+        "交易成功",
+        "付款成功"
+      ],
+      "paymentAccount": "Assets:Digital:AliPay",
+      "categoryAccount": "Expenses:Food:快餐外卖"
+    },
+    {
+      "id": "wechat-success",
+      "name": "微信 · 支付凭证",
+      "enabled": true,
+      "packageName": "com.tencent.mm",
+      "containsAny": [
+        "支付成功",
+        "微信支付凭证"
+      ],
+      "paymentAccount": "Assets:Digital:WeChatPay",
+      "categoryAccount": "Expenses:Food:饮料零食"
+    },
+    {
+      "id": "meituan-success",
+      "name": "美团 · 订单支付",
+      "enabled": true,
+      "packageName": "com.sankuai.meituan",
+      "containsAny": [
+        "支付成功",
+        "订单已完成"
+      ],
+      "categoryAccount": "Expenses:Food:快餐外卖"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+# 青簿记账页面配置。此文件属于账本，应用启动和同步后都以此处内容为准。
+version: 1
+
+types:
+  - id: expense
+    label: 支出
+    icon: minus-circle
+    kind: expense
+  - id: income
+    label: 收入
+    icon: plus-circle
+    kind: income
+  - id: transfer
+    label: 转账
+    icon: repeat
+    kind: transfer
+  - id: invest
+    label: 理财
+    icon: trending-up
+    kind: transfer
+
+defaults:
+  expense:
+    payment: Assets:Digital:AliPay
+    category: Expenses:Food:快餐外卖
+  income:
+    payment: Assets:Digital:AliPay
+    category: Income:Salary
+  transfer:
+    from: Assets:Digital:AliPay
+    to: Assets:Digital:WeChatPay
+  invest:
+    from: Assets:Digital:AliPay
+    to: Assets:Investment:FutuHKCash
+
+accounts:
+  Assets:
+    - id: DebitCard
+      label: 借记卡
+      icon: credit-card
+      color: "#4B94C6"
+      children:
+        - id: CMB-1333
+          label: 招商借记卡
+          icon: credit-card
+    - id: Digital
+      label: 电子支付
+      icon: smartphone
+      color: "#5C9A86"
+      children:
+        - id: AliPay
+          label: 支付宝
+          icon: wallet
+        - id: WeChatPay
+          label: 微信钱包
+          icon: message-circle
+    - id: Investment
+      label: 投资账户
+      icon: trending-up
+      color: "#8B7BB8"
+      children:
+        - id: FutuHKCash
+          label: 富途现金
+          icon: briefcase
+        - id: Fund
+          label: 基金
+          icon: pie-chart
+          children:
+            - id: FUND005827
+              label: 易方达蓝筹
+
+  Liabilities:
+    - id: ConsumptionCredit
+      label: 消费信贷
+      icon: shopping-bag
+      color: "#C28174"
+      children:
+        - id: 花呗
+          label: 花呗
+        - id: 白条
+          label: 白条
+        - id: 抖音月付
+          label: 抖音月付
+        - id: 美团月付
+          label: 美团月付
+    - id: CreditCard
+      label: 信用卡
+      icon: credit-card
+      color: "#AB94C1"
+      children:
+        - id: CMB-1111
+          label: 招商信用卡
+    - id: Personal
+      label: 个人借款
+      icon: users
+      color: "#A68B68"
+
+  Income:
+    - id: Salary
+      label: 工资
+      icon: briefcase
+      color: "#5C9A86"
+    - id: Investment
+      label: 投资收益
+      icon: trending-up
+      color: "#8B7BB8"
+      children:
+        - id: Fund
+          label: 基金收益
+          children:
+            - id: FUND005827
+              label: 易方达蓝筹
+              children:
+                - id: Dividend
+                  label: 分红
+                - id: PnL
+                  label: 买卖盈亏
+    - id: Interest
+      label: 利息
+      icon: percent
+      color: "#6D9C82"
+    - id: Sale
+      label: 出售
+      icon: tag
+      color: "#D19A5B"
+    - id: Other
+      label: 其他收入
+      icon: gift
+      color: "#8B9D71"
+
+  Expenses:
+    - id: Food
+      label: 餐饮
+      icon: coffee
+      color: "#CF9561"
+      children:
+        - id: 米面油料水
+          label: 米面油料水
+          icon: package
+        - id: 生鲜蛋奶
+          label: 生鲜蛋奶
+          icon: shopping-bag
+        - id: 水果蔬菜
+          label: 水果蔬菜
+          icon: shopping-bag
+        - id: 饮料零食
+          label: 饮料零食
+          icon: coffee
+        - id: 快餐外卖
+          label: 快餐外卖
+          icon: zap
+    - id: Transport
+      label: 交通
+      icon: navigation
+      color: "#749EBC"
+      children:
+        - id: 停车费
+          label: 停车费
+          icon: square
+        - id: 加油充电
+          label: 加油充电
+          icon: zap
+        - id: 保养修车
+          label: 保养修车
+          icon: tool
+        - id: 罚款
+          label: 罚款
+          icon: alert-triangle
+        - id: 共享单车
+          label: 共享单车
+          icon: bike
+        - id: 飞机高铁
+          label: 飞机高铁
+          icon: send
+        - id: 打车租车
+          label: 打车租车
+          icon: navigation
+        - id: 公交地铁
+          label: 公交地铁
+          icon: map-pin
+    - id: Housing
+      label: 居住
+      icon: home
+      color: "#A68B68"
+      children:
+        - id: 租房
+          label: 租房
+          icon: home
+        - id: 酒店
+          label: 酒店
+          icon: briefcase
+        - id: 水电气暖物业
+          label: 水电气暖物业
+          icon: droplet
+        - id: 维修清洁
+          label: 维修清洁
+          icon: tool
+        - id: 家具家电
+          label: 家具家电
+          icon: monitor
+    - id: Health
+      label: 健康
+      icon: heart
+      color: "#C28174"
+      children:
+        - id: 医院
+          label: 医院
+          icon: plus-square
+        - id: 买药
+          label: 买药
+          icon: activity
+        - id: 体检
+          label: 体检
+          icon: clipboard
+        - id: 保健品
+          label: 保健品
+          icon: shield
+        - id: 其他
+          label: 其他健康支出
+          icon: more-horizontal
+    - id: Personal
+      label: 个人
+      icon: user
+      color: "#9A86B5"
+      children:
+        - id: 个人护理
+          label: 个人护理
+          icon: scissors
+        - id: 健身
+          label: 健身
+          icon: activity
+        - id: 教育
+          label: 教育
+          icon: book-open
+        - id: 服饰和鞋
+          label: 服饰和鞋
+          icon: shopping-bag
+        - id: 生活日用品
+          label: 生活日用品
+          icon: package
+    - id: Insurance
+      label: 保险
+      icon: shield
+      color: "#6D9C82"
+    - id: Tax
+      label: 税费
+      icon: percent
+      color: "#A68B68"
+    - id: Fees
+      label: 服务费
+      icon: tool
+      color: "#8A8F86"
+      children:
+        - id: FutuHK
+          label: 富途费用
+    - id: Other
+      label: 其他支出
+      icon: grid
+      color: "#AB9A7A"
+    - id: Software
+      label: 软件
+      icon: monitor
+      color: "#749EBC"
+    - id: Entertainment
+      label: 娱乐
+      icon: film
+      color: "#C58A9B"
+    - id: Electronics
+      label: 电子产品
+      icon: cpu
+      color: "#7B9F83"
+    - id: Gifts-to-SB
+      label: 礼物
+      icon: gift
+      color: "#D19A5B"
+    - id: Shopping
+      label: 购物
+      icon: shopping-bag
+      color: "#9A86B5"
+
+  Equity:
+    - id: Opening-Balances
+      label: 期初余额
+      icon: flag
+    - id: BadDebts
+      label: 对账差额
+      icon: alert-circle
+    - id: Exchange
+      label: 换汇
+      icon: refresh-cw
