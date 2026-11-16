@@ -14,10 +14,10 @@ types:
     label: 转账
     icon: repeat
     kind: transfer
-  - id: invest
-    label: 理财
-    icon: trending-up
-    kind: transfer
+  # - id: invest
+  #   label: 理财
+  #   icon: trending-up
+  #   kind: transfer
 
 defaults:
   expense:
